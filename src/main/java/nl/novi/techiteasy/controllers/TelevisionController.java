@@ -17,22 +17,22 @@ public class TelevisionController {
 
     @GetMapping("/Televisies")
     public ResponseEntity<Object> getAllTelevisies(){
-        return ResponseEntity.ok()
+        return ResponseEntity.ok();
     }
 
     @GetMapping("/televisie/{id}")
     public ResponseEntity<Object> getTelevisie(@PathVariable long id){
-        return ResponseEntity.ok()
+        return ResponseEntity.ok();
     }
 
     @PostMapping("/televisie")
     public ResponseEntity<Object> addBook(@RequestBody String title) {
-        return ResponseEntity.created()
+        return ResponseEntity.created();
     }
 
     @PutMapping("/televisie/{id}")
     public ResponseEntity<Object> updateBook(@PathVariable int id, @RequestBody String title) {
-        return ResponseEntity.noContent()
+        return ResponseEntity.noContent();
     }
 
     @DeleteMapping("/televisie/{id}")
