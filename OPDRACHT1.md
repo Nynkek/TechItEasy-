@@ -9,11 +9,11 @@ Voor nu mag je dit gewoon van ons aannemen!
 Randvoorwaarden
 De opdracht moet voldoen aan de volgende voorwaarden:
 
-    [] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Controllers;
-    [] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Exceptions;
-    [] Het project bevat een TelevisionsController;
-    [] Het project bevat een ExceptionController;
-    [] Het project bevat een RecordNotFoundException;
+    [v] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Controllers;
+    [v] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Exceptions;
+    [v] Het project bevat een TelevisionsController;
+    [v] Het project bevat een ExceptionController;
+    [v] Het project bevat een RecordNotFoundException;
 
     [v] De TelevisionsController bevat:
     [v] een GET-request voor alle televisies
@@ -35,9 +35,9 @@ Belangrijk
 
 Je mag de volgende return fragmenten gebruiken:
 
-    [] ResponseEntiteit.ok()
-    [] ResponseEntiteit.created()
-    [] ResponseEntiteit.noContent()
+    [v] ResponseEntiteit.ok()
+    [v] ResponseEntiteit.created()
+    [v] ResponseEntiteit.noContent()
 
 Door het gebruik van deze return fragmenten zul je de volgende foutmeldingen tegenkomen:
 

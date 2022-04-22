@@ -14,38 +14,39 @@ en een RecordNotFound exception. Na een nieuwe les Spring boot ben je klaar voor
 je applicatie.
 
 Randvoorwaarden
-    [] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Models;
-    [] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Repositories;
-    [] Het project bevat een Television in de map Models;
-    [] Het project bevat een TelevisionRepository;
-    [] Het project bevat de volgende dependencies:
-    [v] Spring Web
-    [] Spring Data Jpa
-    [] PostgreSQL Driver
-    [] De Application.properties bevat de properties uit hoofdstuk 9.2 van de cursus Spring Boot(met aangepaste namen)
-    [] De TelevisionRepository extends JpaRepository met de juiste parameters
+    [v] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Models;
+    [v] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Repositories;
+    [v] Het project bevat een Television in de map Models;
+    [v] Het project bevat een TelevisionRepository;
+
+Het project bevat de volgende dependencies:
+        [v] Spring Web
+        [v] Spring Data Jpa
+        [v] PostgreSQL Driver
+        [v] De Application.properties bevat de properties uit hoofdstuk 9.2 van de cursus Spring Boot(met aangepaste namen)
+        [v] De TelevisionRepository extends JpaRepository met de juiste parameters
 
 De Television bevat: -de attributen:
-    [] Long id (incl. annotaties id en generatedValue)
-    [] String type
-    [] String brand
-    [] String name
-    [] Double price
-    [] Double availableSize
-    [] Double refreshRate
-    [] String screenType
-    [] String screenQuality
-    [] Boolean smartTv
-    [] Boolean wifi
-    [] Boolean voiceControl
-    [] Boolean hdr
-    [] Boolean bluetooth
-    [] Boolean ambiLight
-    [] Integer originalStock
-    [] Integer sold
-    [] default constructor
-    [] constructor
-    [] alle getters en setters
+    [v] Long id (incl. annotaties id en generatedValue)
+    [v] String type
+    [v] String brand
+    [v] String name
+    [v] Double price
+    [v] Double availableSize
+    [v] Double refreshRate
+    [v] String screenType
+    [v] String screenQuality
+    [v] Boolean smartTv
+    [v] Boolean wifi
+    [v] Boolean voiceControl
+    [v] Boolean hdr
+    [v] Boolean bluetooth
+    [v] Boolean ambiLight
+    [v] Integer originalStock
+    [v] Integer sold
+    [v] default constructor
+    [v] constructor
+    [v] alle getters en setters
 
 Belangrijk
     Bij het inleveren van deze opdracht is deze applicatie nog niet functioneel, hier hebben we meer kennis over 
@@ -66,16 +67,16 @@ Stappenplan
     Let op: het is uitdagender om jouw eigen stappenplan te maken. Mocht je niet zo goed weten waar je moet 
     beginnen, kun je onderstaand stappenplan volgen:
 
-    [] Voeg de benodigde dependencies toe aan je POM.xml en laat Maven deze instaleren
-    [] Voeg aan de application.properties de benodigde properties toe
-    [] Maak een nieuwe database aan in PgAdmin (zorg dat de naam overeenkomt met de properties in je 
+    [v] Voeg de benodigde dependencies toe aan je POM.xml en laat Maven deze instaleren
+    [v] Voeg aan de application.properties de benodigde properties toe
+    [v] Maak een nieuwe database aan in PgAdmin (zorg dat de naam overeenkomt met de properties in je 
         _application.properties)
-    []Maak een nieuwe map aan in je project voor Models
-    [] Maak een nieuwe klasse genaamd Television
-    [] Voeg de annotatie @Entity toe aan de klasse
-    [] Voeg de juiste attributen toe aan de klasse
-    [] Voeg de beide constructors toe aan de klasse
-    [] Voeg alle getters & setters toe aan de klasse
-    [] Maak een nieuwe map aan in je project voor Repositories
-    [] Voeg aan deze map een nieuwe klasse toe genaamd TelevisionRepository
-    [] Extend de repository met de JpaRepository en geef de juiste attributen mee
+    [v] Maak een nieuwe map aan in je project voor Models
+    [v] Maak een nieuwe klasse genaamd Television
+    [v] Voeg de annotatie @Entity toe aan de klasse
+    [v] Voeg de juiste attributen toe aan de klasse
+    [v] Voeg de beide constructors toe aan de klasse
+    [v] Voeg alle getters & setters toe aan de klasse
+    [v] Maak een nieuwe map aan in je project voor Repositories
+    [v] Voeg aan deze map een nieuwe klasse toe genaamd TelevisionRepository
+    [v] Extend de repository met de JpaRepository en geef de juiste attributen mee

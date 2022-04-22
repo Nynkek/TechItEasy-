@@ -10,14 +10,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class ExceptionController {
 
-    /*
-    De ExceptionController bevat:
-    [v] een exceptionhandler
-
-    [] ResponseEntiteit.ok()
-    [] ResponseEntiteit.created()
-    [] ResponseEntiteit.noContent()
-    */
 
 
     @ExceptionHandler(value = RecordNotFoundException.class)

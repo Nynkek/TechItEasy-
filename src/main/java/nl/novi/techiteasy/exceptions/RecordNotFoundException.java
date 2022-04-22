@@ -1,15 +1,8 @@
 package nl.novi.techiteasy.exceptions;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-
-
 public class RecordNotFoundException extends RuntimeException{
-    /*
-    [v] een default exception
-    [v] een exception met message
-    */
+    public static final long serialVersionUID = 1L;
+
 
     public RecordNotFoundException() {
         super();
