@@ -19,15 +19,14 @@ Randvoorwaarden
 
 De opdracht moet voldoen aan de volgende voorwaarden:
 
-    [] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Services;
-    [] De map Services bevat een klasse genaamd TelevisionService;
-    [] De TelevisionService bevat:
-        [] de juiste annotatie
-        [] een private variabele TelevisionRepository
-        [] de connectie van de Service en de Repository door middel van een autowired
-        [] een functie voor het ophalen van alle Televisions
-        [] een functie voor het ophalen van 1 Television
-        [] een functie voor het opslaan van 1 Television
+    [v] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Services;
+    [v] De map Services bevat een klasse genaamd TelevisionService;
+    De TelevisionService bevat:
+        [v] de juiste annotatie
+        [v] een private variabele TelevisionRepository
+        [v] de connectie van de Service en de Repository door middel van een autowired
+        [v] een functie voor het ophalen van alle Televisions
+        [v] een functie voor het ophalen van 1 Television
         [] een functie voor het verwijderen van 1 Television
         [] een functie voor het updaten van 1 Television
     [] De Controller is door middel van een autowired gelinkt aan de Service;
@@ -59,34 +58,39 @@ Stappenplan
 Let op: het is uitdagender om jouw eigen stappenplan te maken. Mocht je niet zo goed weten waar je moet beginnen, kun 
 je onderstaand stappenplan volgen:
 
-    [] Voeg de benodigde dependencies toe aan je POM.xml en laat Maven deze installeren.
-    [] Maak een map genaamd Services aan in de map-structuur.
-    [] Maak een klasse genaamd TelevisionService aan in de map Services.
-    [] Voeg de Service annotatie boven de klasse toe.
-    [] Maak in de TelevisionService een private variabele aan voor de TelevisionRepository.
-    [] Voeg een @Autowired toe om de Repository in de TelevisionService te kunnen gebruiken.
-    [] Maak in de TelevisionService de functie getTelevisions aan de hand van het voorbeeld in paragraaf 6.2 van de cursus
+    [v] 1. Voeg de benodigde dependencies toe aan je POM.xml en laat Maven deze installeren.
+    [v] 2. Maak een map genaamd Services aan in de map-structuur.
+    [v] 3. Maak een klasse genaamd TelevisionService aan in de map Services.
+    [v] 4. Voeg de Service annotatie boven de klasse toe.
+    [v] 5. Maak in de TelevisionService een private variabele aan voor de TelevisionRepository.
+    [v] 6. Voeg een @Autowired toe om de Repository in de TelevisionService te kunnen gebruiken.
+    [v] 7. Maak in de TelevisionService de functie getTelevisions aan de hand van het voorbeeld in paragraaf 6.2 van de cursus
         Spring Boot cursus in Edhub.
-    [] Doe dit ook voor de getTelevision, saveTelevision, updateTelevision en de deleteTelevision.
-    [] Maak in de TelevisionController een @Autowired om de Service te kunnen gebruiken in de Controller.
-    [] Maak in het project een map aan genaamd Dtos.
-    [] Maak in deze map een klasse aan genaamd TelevisionDto.
-    [] Definieer in deze klasse alle variabele die een Television object bevat (dezelfde als in het model gedefinieerd 
+    [v] 8. Doe dit ook voor de 
+        [v] getTelevision, 
+        [v] saveTelevision, 
+        [v] updateTelevision en de 
+        [v] deleteTelevision.
+    [v] 9. Maak in de TelevisionController een @Autowired om de Service te kunnen gebruiken in de Controller.
+
+    [v] 10. Maak in het project een map aan genaamd Dtos.
+    [v] 11. Maak in deze map een klasse aan genaamd TelevisionDto.
+    [v] 12. Definieer in deze klasse alle variabele die een Television object bevat (dezelfde als in het model gedefinieerd 
         staan).
-    [] Maak daaronder een public static functie aan genaamd fromTelevision. Deze heeft als returnwaarde TelevisionDto en 
+    [v] 13. Maak daaronder een public static functie aan genaamd fromTelevision. Deze heeft als returnwaarde TelevisionDto en 
         als attribuut Television television.
-    [] Maak in deze functie een var dto = new TelevisionDto();.
-    [] Voeg in de functie voor iedere variable, die je boven deze functie hebt gedeclareerd een toewijzing naar de dto 
+    [v] 14. Maak in deze functie een var dto = new TelevisionDto();.
+    [v] 15. Voeg in de functie voor iedere variable, die je boven deze functie hebt gedeclareerd een toewijzing naar de dto 
         variable (bijvoorbeeld: dto.name = television.getName(); ).
-    [] Return als laatste stap in deze functie het dto object en sluit de functie af.
-    [] Maak een klasse aan in de map Dtos genaamd TelevisionInputDto.
-    [] Definieer ook in deze klasse alle variabelen die een Television object bevat.
-    [] Maak een public functie genaamd toTelevision() met returnwaarde Television.
-    [] Maak in deze functie een var television = new Television();.
-    [] Voeg in de functie voor iedere variable, die je boven deze functie hebt gedeclareerd, een toewijzing naar de 
+    [v] 16. Return als laatste stap in deze functie het dto object en sluit de functie af.
+    [v] 17. Maak een klasse aan in de map Dtos genaamd TelevisionInputDto.
+    [v] 18. Definieer ook in deze klasse alle variabelen die een Television object bevat.
+    [v] 19. Maak een public functie genaamd toTelevision() met returnwaarde Television.
+    [v] 20.Maak in deze functie een var television = new Television();.
+    [v] 21. Voeg in de functie voor iedere variable, die je boven deze functie hebt gedeclareerd, een toewijzing naar de 
         television variabele (bijvoorbeeld: television.setName(name); ).
-    [] Pas de RequestMappings in de TelevisionController, zodat de controller het verzoek doet aan de servicelaag en het
+    [v] 22. Pas de RequestMappings in de TelevisionController, zodat de controller het verzoek doet aan de servicelaag en het
         response ook ontvangt van de servicelaag (dit is omdat we de Controller eigenlijk zo dom mogelijk willen houden).
-    [] Pas de servicelaag zo aan dat deze gebruikmaakt van de gegevens die de controllerlaag doorgeeft. De Service moet
+    [v] 23. Pas de servicelaag zo aan dat deze gebruikmaakt van de gegevens die de controllerlaag doorgeeft. De Service moet
         hier dan de logica aan toepassen om met gebruik van de Dtos een returnwaarde terug te kunnen sturen naar de 
         controller.

@@ -1,12 +1,6 @@
-package nl.novi.techiteasy.Models;
+package nl.novi.techiteasy.Dtos;
 
-import javax.persistence.*;
-
-@Entity
-public class Television {
-
-    @Id
-    @GeneratedValue
+public class TelevisionDto {
     private Long id;
 
     private String type;
@@ -25,46 +19,6 @@ public class Television {
     private Boolean ambiLight;
     private Integer originalStock;
     private Integer sold;
-
-    public Television() {
-    }
-
-    public Television(Long id,
-                      String type,
-                      String brand,
-                      String name,
-                      Double price,
-                      Double availableSize,
-                      Double refreshRate,
-                      String screenType,
-                      String screenQuality,
-                      Boolean smartTv,
-                      Boolean wifi,
-                      Boolean voiceControl,
-                      Boolean hdr,
-                      Boolean bluetooth,
-                      Boolean ambiLight,
-                      Integer originalStock,
-                      Integer sold) {
-        this.id = id;
-        this.type = type;
-        this.brand = brand;
-        this.name = name;
-        this.price = price;
-        this.availableSize = availableSize;
-        this.refreshRate = refreshRate;
-        this.screenType = screenType;
-        this.screenQuality = screenQuality;
-        this.smartTv = smartTv;
-        this.wifi = wifi;
-        this.voiceControl = voiceControl;
-        this.hdr = hdr;
-        this.bluetooth = bluetooth;
-        this.ambiLight = ambiLight;
-        this.originalStock = originalStock;
-        this.sold = sold;
-
-    }
 
     public Long getId() {
         return id;
@@ -200,6 +154,5 @@ public class Television {
 
     public void setSold(Integer sold) {
         this.sold = sold;
-
     }
 }
