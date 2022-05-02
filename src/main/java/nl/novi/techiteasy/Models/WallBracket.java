@@ -9,6 +9,9 @@ public class WallBracket {
     private String name;
     private Double price;
 
+    public WallBracket() {
+    }
+
     public WallBracket(Long id,
                        String size,
                        Boolean ajustable,
