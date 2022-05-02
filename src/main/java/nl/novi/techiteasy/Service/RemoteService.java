@@ -3,7 +3,7 @@ package nl.novi.techiteasy.Service;
 import nl.novi.techiteasy.Dtos.*;
 import nl.novi.techiteasy.Dtos.RemoteDto;
 import nl.novi.techiteasy.Models.Remote;
-import nl.novi.techiteasy.Models.Television;
+import nl.novi.techiteasy.Models.Remote;
 import nl.novi.techiteasy.Repositories.RemoteRepository;
 import nl.novi.techiteasy.exceptions.RecordNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class RemoteService {
         this.remoteRepository = remoteRepository;
     }
 
-    public List<RemoteDto> getAllTelevisions(){
+    public List<RemoteDto> getAllRemotes(){
         List<RemoteDto> remoteDtos = new ArrayList<>();
         List<Remote> remotes = remoteRepository.findAll();
         for (Remote remote : remotes){
@@ -31,7 +31,7 @@ public class RemoteService {
         return remoteDtos;
     }
 
-    public List<RemoteDto> getAllTelevisionsByBrand(String brand){
+    public List<RemoteDto> getAllRemotesByBrand(String brand){
         List<RemoteDto> remoteDtos = new ArrayList<>();
         List<Remote> remotes = remoteRepository.findAll();
         for (Remote remote : remotes){
@@ -54,12 +54,12 @@ public class RemoteService {
         return fromRemote(remote);
     }
 
-    public String deleteRemote(Television id) {
+    public String deleteRemote(Remote id) {
         remoteRepository.deleteById(id.getId());
         return "product removed !!" + id;
     }
 
-    public RemoteDto updateRemote (RemoteInputDto remoteInputDto, Television id){
+    public RemoteDto updateRemote (RemoteInputDto remoteInputDto, Remote id){
         Remote existingRemote = remoteRepository.findById(remoteInputDto.getId()).orElse(null);
         assert existingRemote != null;
         existingRemote.setOriginalStock(remoteInputDto.getOriginalStock());

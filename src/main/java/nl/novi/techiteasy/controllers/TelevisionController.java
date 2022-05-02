@@ -1,6 +1,5 @@
 package nl.novi.techiteasy.controllers;
 
-
 import nl.novi.techiteasy.Dtos.TelevisionDto;
 import nl.novi.techiteasy.Dtos.TelevisionInputDto;
 import nl.novi.techiteasy.Models.Television;
