@@ -3,9 +3,14 @@ package nl.novi.techiteasy.Models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Remote {
+
+    @OneToOne
+    private Television television;
+
 
     @Id
     @GeneratedValue

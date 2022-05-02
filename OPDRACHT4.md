@@ -68,13 +68,16 @@ Stappenplan
         requestMappings).
     [v] 4. Maak in de map Dtos voor elk model een Dto en InputDto aan (met juiste variables en toewijzingen).
     [v] 5. Maak in de map Services voor elk model een Service aan (met juiste annotatie, @Autowired en functions).
-    [] 6. Leg een OneToOne relatie tussen Television en RemoteController door in beide models @OneToOne toe te voegen, 
-        gevolgd door het model waar de relatie mee ligt in de vorm van Model object (bijvoorbeeld Television television) 
-        op de volgende regel.
-    [] 7. Een OneToOne relatie heeft een eigenaar nodig. Maak de Television eigenaar door in RemoteController achter de 
-        @OneToOne mappedBy toe te voegen op deze manier _@OneToOne(mappedBy = "remotecontroller"). Dit zorgt ervoor dat 
-        in de Television tabel een kolom wordt toegevoegd met de naam remotecontroller_id. Vergeet niet de getter en 
-        setter toe te voegen na het leggen van de relatie in de modellen.
+    [v] 6. Leg een OneToOne relatie tussen 
+            [v] Television en RemoteController 
+            [v] door in beide models @OneToOne toe te voegen, 
+            [v] gevolgd door het model waar de relatie mee ligt in de vorm van Model object (bijvoorbeeld Television television) 
+                op de volgende regel.
+    [] 7. Een OneToOne relatie heeft een eigenaar nodig. 
+            [v] Maak de Television eigenaar door in RemoteController 
+            [v] achter de @OneToOne mappedBy toe te voegen op deze manier _@OneToOne(mappedBy = "remotecontroller").
+            [] Dit zorgt ervoor dat in de Television tabel een kolom wordt toegevoegd met de naam remotecontroller_id. 
+            [v] Vergeet niet de getter en setter toe te voegen na het leggen van de relatie in de modellen.
     [] 8. Om deze kolom te vullen zal je in servicelaag ook een functie moeten maken die een koppeling maakt tussen de 
         Television en de RemoteController. Dit doe je in de TelevisionService.
     [] 9. Voeg de functie "assignRemoteControllerToTelevision" toe in de TelevisionService. Zoals je ziet, herkent de 
