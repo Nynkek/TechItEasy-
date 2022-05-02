@@ -21,20 +21,20 @@ Randvoorwaarden
 
 Het project bevat de volgende Models:
 
-    [] Television
+    [v] Television
     [] RemoteController met de variables: 
-        [] -Long id 
-        [] -String compatibleWith 
-        [] -String batteryType 
-        [] -String name 
-        [] -String brand 
-        [] -Double price 
-        [] -Integer originalStock
+        [v] -Long id 
+        [v] -String compatibleWith 
+        [v] -String batteryType 
+        [v] -String name 
+        [v] -String brand 
+        [v] -Double price 
+        [v] -Integer originalStock
     [] CI-Module met de variables: 
-        [] -Long id 
-        [] -String name 
-        [] -String type 
-        [] -Double price
+        [v] -Long id 
+        [v] -String name 
+        [v] -String type 
+        [v] -Double price
     [] WallBracket met de variables: 
         [] -Long id 
         [] -String size 

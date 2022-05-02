@@ -1,6 +1,6 @@
 package nl.novi.techiteasy.Service;
 
-import nl.novi.techiteasy.Dtos.IdInputDto;
+
 import nl.novi.techiteasy.Dtos.TelevisionDto;
 import nl.novi.techiteasy.Dtos.TelevisionInputDto;
 import nl.novi.techiteasy.Models.Television;
@@ -40,7 +40,7 @@ public class TelevisionService {
         return televisionDtos;
     }
 
-    public TelevisionDto getTelevisionById(IdInputDto id){
+    public TelevisionDto getTelevisionById(Television id){
         Television televisionFound = televisionRepository.getById(id.getId());
             if (televisionFound == null){
                 throw new RecordNotFoundException("cannot find television" + id);
@@ -54,12 +54,13 @@ public class TelevisionService {
         return fromTelevision(television);
     }
 
-    public String deleteTelevision(IdInputDto id) {
+    public String deleteTelevision(Television id) {
         televisionRepository.deleteById(id.getId());
         return "product removed !!" + id;
     }
 
-    public TelevisionDto updateTelevision (TelevisionInputDto televisionInputDto, IdInputDto id){
+
+    public TelevisionDto updateTelevision (TelevisionInputDto televisionInputDto, Television id){
         Television existingTelevision = televisionRepository.findById(televisionInputDto.getId()).orElse(null);
         assert existingTelevision != null;
         existingTelevision.setOriginalStock(televisionInputDto.getOriginalStock());
@@ -71,6 +72,7 @@ public class TelevisionService {
     
     public static TelevisionDto fromTelevision(Television television) {
         var dto = new TelevisionDto();
+        dto.setId(television.getId());
         dto.setType(television.getType());
         dto.setBrand(television.getBrand());
         dto.setName(television.getName());
@@ -92,6 +94,7 @@ public class TelevisionService {
 
     public static Television toTelevision(TelevisionInputDto dto) {
         var television = new Television();
+        television.setId(dto.getId());
         television.setBrand(dto.getBrand());
         television.setType(dto.getType());
         television.setName(dto.getName());

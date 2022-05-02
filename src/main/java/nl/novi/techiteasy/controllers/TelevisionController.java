@@ -1,9 +1,9 @@
 package nl.novi.techiteasy.controllers;
 
 
-import nl.novi.techiteasy.Dtos.IdInputDto;
 import nl.novi.techiteasy.Dtos.TelevisionDto;
 import nl.novi.techiteasy.Dtos.TelevisionInputDto;
+import nl.novi.techiteasy.Models.Television;
 import nl.novi.techiteasy.Service.TelevisionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -37,8 +37,9 @@ public class TelevisionController {
     }
 
     @GetMapping("/televisie/{id}")
-    public TelevisionDto findTelevisionByName(@PathVariable IdInputDto id) {
+    public TelevisionDto findTelevisionByName(@PathVariable Television id) {
         return televisionService.getTelevisionById(id);
+
     }
 
     @PostMapping("/add/televisie")
@@ -46,21 +47,13 @@ public class TelevisionController {
         return televisionService.addTelevision(televisionInputDto);
     }
 
-//    @PostMapping("/add/televisies")
-//    public List<TelevisionDto> addTelevisie(@RequestBody List<TelevisionDto> television) {
-//        return (List<TelevisionDto>) televisionService.addTelevision((TelevisionDto) television);
-//    }
-
-
     @PutMapping("/update/{id}")
-    public TelevisionDto updateTelevision(@RequestBody TelevisionInputDto televisionInputDto, @PathVariable IdInputDto id) {
-
+    public TelevisionDto updateTelevision(@RequestBody TelevisionInputDto televisionInputDto, @PathVariable Television id) {
             return televisionService.updateTelevision(televisionInputDto, id);
-
     }
 
     @DeleteMapping("/delete/{id}")
-    public String deleteTelevision(@PathVariable IdInputDto id) {
+    public String deleteTelevision(@PathVariable Television id) {
         return televisionService.deleteTelevision(id);
     }
 }
