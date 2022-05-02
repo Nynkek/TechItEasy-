@@ -30,7 +30,7 @@ public class WallBracketService {
         return wallBracketDtos;
     }
 
-    public List<WallBracketDto> getAllTelevisionsByBrand(String brand) {
+    public List<WallBracketDto> getAllWallBracketsByBrand(String brand) {
         List<WallBracketDto> wallBracketDtos = new ArrayList<>();
         List<WallBracket> wallBracket = wallBracketRepository.findAll();
         for (WallBracket wallBrackets : wallBracket) {
@@ -39,7 +39,7 @@ public class WallBracketService {
         return wallBracketDtos;
     }
 
-    public WallBracketDto getTelevisionById(WallBracket id) {
+    public WallBracketDto getWallBracketById(WallBracket id) {
         WallBracket wallBracketFound = wallBracketRepository.getById(id.getId());
         if (wallBracketFound == null) {
             throw new RecordNotFoundException("cannot find wallBracket" + id);
