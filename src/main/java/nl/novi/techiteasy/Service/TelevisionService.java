@@ -22,33 +22,33 @@ public class TelevisionService {
         this.televisionRepository = televisionRepository;
     }
 
-    public List<TelevisionDto> getAllTelevisions(){
+    public List<TelevisionDto> getAllTelevisions() {
         List<TelevisionDto> televisionDtos = new ArrayList<>();
         List<Television> televisions = televisionRepository.findAll();
-        for (Television television : televisions){
+        for (Television television : televisions) {
             televisionDtos.add(fromTelevision(television));
         }
         return televisionDtos;
     }
 
-    public List<TelevisionDto> getAllTelevisionsByBrand(String brand){
+    public List<TelevisionDto> getAllTelevisionsByBrand(String brand) {
         List<TelevisionDto> televisionDtos = new ArrayList<>();
         List<Television> televisions = televisionRepository.findAll();
-        for (Television television : televisions){
+        for (Television television : televisions) {
             televisionDtos.add(fromTelevision(television));
         }
         return televisionDtos;
     }
 
-    public TelevisionDto getTelevisionById(Television id){
+    public TelevisionDto getTelevisionById(Television id) {
         Television televisionFound = televisionRepository.getById(id.getId());
-            if (televisionFound == null){
-                throw new RecordNotFoundException("cannot find television" + id);
-            }
-            return fromTelevision(televisionFound);
+        if (televisionFound == null) {
+            throw new RecordNotFoundException("cannot find television" + id);
+        }
+        return fromTelevision(televisionFound);
     }
 
-    public TelevisionDto addTelevision(TelevisionInputDto televisionInputDto){
+    public TelevisionDto addTelevision(TelevisionInputDto televisionInputDto) {
         Television television = toTelevision(televisionInputDto);
         televisionRepository.save(television);
         return fromTelevision(television);
@@ -59,7 +59,7 @@ public class TelevisionService {
         return "product removed !!" + id;
     }
 
-    public TelevisionDto updateTelevision (TelevisionInputDto televisionInputDto, Television id){
+    public TelevisionDto updateTelevision(TelevisionInputDto televisionInputDto, Television id) {
         Television existingTelevision = televisionRepository.findById(televisionInputDto.getId()).orElse(null);
         assert existingTelevision != null;
         existingTelevision.setOriginalStock(televisionInputDto.getOriginalStock());
@@ -68,7 +68,7 @@ public class TelevisionService {
         televisionRepository.save(existingTelevision);
         return fromTelevision(existingTelevision);
     }
-    
+
     public static TelevisionDto fromTelevision(Television television) {
         var dto = new TelevisionDto();
         dto.setId(television.getId());
@@ -110,5 +110,4 @@ public class TelevisionService {
         television.setSold(dto.getSold());
         return television;
     }
-
 }
