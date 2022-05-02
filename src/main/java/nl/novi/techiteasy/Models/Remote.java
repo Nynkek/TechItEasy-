@@ -1,6 +1,6 @@
 package nl.novi.techiteasy.Models;
 
-public class RemoteController {
+public class Remote {
 
     private Long id;
     private String compatibleWith;
@@ -10,7 +10,7 @@ public class RemoteController {
     private Double price;
     private Integer originalStock;
 
-    public RemoteController(Long id,
+    public Remote(Long id,
                             String compatibleWith,
                             String batteryType,
                             String name,
@@ -29,6 +29,7 @@ public class RemoteController {
     public Long getId() {
         return id;
     }
+
 
     public void setId(Long id) {
         this.id = id;
