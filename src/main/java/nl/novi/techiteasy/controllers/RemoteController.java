@@ -1,6 +1,5 @@
 package nl.novi.techiteasy.controllers;
 
-
 import nl.novi.techiteasy.Dtos.RemoteDto;
 import nl.novi.techiteasy.Dtos.RemoteInputDto;
 import nl.novi.techiteasy.Models.Remote;
