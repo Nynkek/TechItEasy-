@@ -46,7 +46,7 @@ Het project bevat de volgende Models:
         [] Controller, 
         [v] Dto, 
         [v] InputDto
-        [] Service.
+        [v] Service.
 
 Daarnaast bevat het project:
     [] Een OneToOne relatie tussen Television en RemoteController
@@ -61,11 +61,11 @@ Stappenplan
     Let op: het is uitdagender om jouw eigen stappenplan te maken. Mocht je niet zo goed weten waar je moet beginnen, 
     kun je onderstaand stappenplan volgen:
 
-    [] 1. Maak in de map Models een klasse aan voor RemoteController, CI-Module en WallBracket (voeg de juiste annotatie, variables, getters&setters en constructors toe).
-    [] 2. Maak in de map Repositories voor elk model een Repository aan (die elk de JpaRepository extends bevat).
+    [v] 1. Maak in de map Models een klasse aan voor RemoteController, CI-Module en WallBracket (voeg de juiste annotatie, variables, getters&setters en constructors toe).
+    [v] 2. Maak in de map Repositories voor elk model een Repository aan (die elk de JpaRepository extends bevat).
     [] 3. Maak in de map Controllers voor elk model een Controller aan (met juiste annotatie, @Autowired en requestMappings).
-    [] 4. Maak in de map Dtos voor elk model een Dto en InputDto aan (met juiste variables en toewijzingen).
-    [] 5. Maak in de map Services voor elk model een Service aan (met juiste annotatie, @Autowired en functions).
+    [v] 4. Maak in de map Dtos voor elk model een Dto en InputDto aan (met juiste variables en toewijzingen).
+    [v] 5. Maak in de map Services voor elk model een Service aan (met juiste annotatie, @Autowired en functions).
     [] 6. Leg een OneToOne relatie tussen Television en RemoteController door in beide models @OneToOne toe te voegen, gevolgd door het model waar de relatie mee ligt in de vorm van Model object (bijvoorbeeld Television television) op de volgende regel.
     [] 7. Een OneToOne relatie heeft een eigenaar nodig. Maak de Television eigenaar door in RemoteController achter de @OneToOne mappedBy toe te voegen op deze manier _@OneToOne(mappedBy = "remotecontroller"). Dit zorgt ervoor dat in de Television tabel een kolom wordt toegevoegd met de naam remotecontroller_id. Vergeet niet de getter en setter toe te voegen na het leggen van de relatie in de modellen.
     [] 8. Om deze kolom te vullen zal je in servicelaag ook een functie moeten maken die een koppeling maakt tussen de Television en de RemoteController. Dit doe je in de TelevisionService.

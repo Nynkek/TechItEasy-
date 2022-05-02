@@ -28,7 +28,6 @@ public class WallBracketService {
             wallBracketDtos.add(fromWallBracket(wallBracket));
         }
         return wallBracketDtos;
-
     }
 
     public List<WallBracketDto> getAllTelevisionsByBrand(String brand) {
