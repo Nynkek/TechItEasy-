@@ -1,11 +1,21 @@
 package nl.novi.techiteasy.Models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class CI_Module {
 
+    @Id
+    @GeneratedValue
     private Long id;
     private String name;
     private String type;
     private Double price;
+
+    public CI_Module() {
+    }
 
     public CI_Module(Long id,
                      String name,

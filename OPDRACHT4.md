@@ -44,8 +44,8 @@ Het project bevat de volgende Models:
     [] Voor elk van deze modellen bevat je applicatie ook een 
         [v] Repository, 
         [] Controller, 
-        [] Dto, 
-        [] InputDto
+        [v] Dto, 
+        [v] InputDto
         [] Service.
 
 Daarnaast bevat het project:

@@ -1,7 +1,14 @@
 package nl.novi.techiteasy.Models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Remote {
 
+    @Id
+    @GeneratedValue
     private Long id;
     private String compatibleWith;
     private String batteryType;
@@ -10,13 +17,16 @@ public class Remote {
     private Double price;
     private Integer originalStock;
 
+    public Remote() {
+    }
+
     public Remote(Long id,
-                            String compatibleWith,
-                            String batteryType,
-                            String name,
-                            String brand,
-                            Double price,
-                            Integer originalStock) {
+                  String compatibleWith,
+                  String batteryType,
+                  String name,
+                  String brand,
+                  Double price,
+                  Integer originalStock) {
         this.id = id;
         this.compatibleWith = compatibleWith;
         this.batteryType = batteryType;
