@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import java.util.HashSet;
+import java.util.Set;
+
 
 @Entity
 public class Remote {
@@ -12,6 +15,7 @@ public class Remote {
     @Id
     @GeneratedValue
     private Long id;
+
     private String compatibleWith;
     private String batteryType;
     private String name;

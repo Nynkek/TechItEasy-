@@ -41,7 +41,7 @@ Het project bevat de volgende Models:
         [v] -Boolean ajustable 
         [v] -String name 
         [v] -Double price 
-    [] Voor elk van deze modellen bevat je applicatie ook een 
+    [v] Voor elk van deze modellen bevat je applicatie ook een 
         [v] Repository, 
         [v] Controller, 
         [v] Dto, 
@@ -50,7 +50,7 @@ Het project bevat de volgende Models:
 
 Daarnaast bevat het project:
     [v] Een OneToOne relatie tussen Television en RemoteController
-    [] Een OneToMany relatie tussen Television en CI-Module
+    [v] Een OneToMany relatie tussen Television en CI-Module
     [] Een ManyToMany relatie tussen Televisionen WallBracket
 
 Belangrijk

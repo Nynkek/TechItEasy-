@@ -55,11 +55,21 @@ public class TelevisionController {
         return televisionService.assignRemoteToTelevision(televisionId, id);
     }
 
+    @PutMapping("/{television_id}/ci_module/{ci_module_id}")
+    public TelevisionDto televisionWhitCI(
+            @PathVariable Long televisionId,
+            @PathVariable Long ci_moduleId
+    ){
+        return televisionService.televisionWhitCI(televisionId, ci_moduleId);
+    }
+
     @DeleteMapping("/delete/{id}")
     public String deleteTelevision(@PathVariable Television id) {
         return televisionService.deleteTelevision(id);
     }
 }
+
+
 
 
 

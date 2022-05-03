@@ -1,8 +1,13 @@
 package nl.novi.techiteasy.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
+@Table(name = "TELEVISION")
 public class Television {
 
     @Id
@@ -66,8 +71,20 @@ public class Television {
 
     }
 
+    @JsonIgnore
+    @ManyToMany(mappedBy = "televisionSet")
+    private Set<CI_Module> ci_moduleSet = new HashSet<>();
+
     @OneToOne
     private Remote remote;
+
+    public Set<CI_Module> getCi_moduleSet() {
+        return ci_moduleSet;
+    }
+
+    public void setCi_moduleSet(Set<CI_Module> ci_moduleSet) {
+        this.ci_moduleSet = ci_moduleSet;
+    }
 
     public Remote getRemote() {
         return remote;

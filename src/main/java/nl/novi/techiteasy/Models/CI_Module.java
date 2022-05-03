@@ -1,8 +1,8 @@
 package nl.novi.techiteasy.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class CI_Module {
@@ -25,6 +25,23 @@ public class CI_Module {
         this.name = name;
         this.type = type;
         this.price = price;
+    }
+
+    @ManyToMany
+    @JoinTable(
+            name = "television_whit_CI",
+            joinColumns = @JoinColumn(name = "television_id"),
+            inverseJoinColumns = @JoinColumn(name = "ci_module_id")
+    )
+
+    private Set<Television> televisionSet = new HashSet<>();
+
+    public Set<Television> getTelevision() {
+        return televisionSet;
+    }
+
+    public void setTelevision(Set<Television> television) {
+        this.televisionSet = television;
     }
 
     public Long getId() {
@@ -57,5 +74,9 @@ public class CI_Module {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public void televisionSet(Television television) {
+        televisionSet.add(television);
     }
 }

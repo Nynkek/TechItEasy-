@@ -2,8 +2,10 @@ package nl.novi.techiteasy.Service;
 
 
 import nl.novi.techiteasy.Dtos.*;
+import nl.novi.techiteasy.Models.CI_Module;
 import nl.novi.techiteasy.Models.Remote;
 import nl.novi.techiteasy.Models.Television;
+import nl.novi.techiteasy.Repositories.CI_ModuleRepository;
 import nl.novi.techiteasy.Repositories.RemoteRepository;
 import nl.novi.techiteasy.Repositories.TelevisionRepository;
 import nl.novi.techiteasy.exceptions.RecordNotFoundException;
@@ -18,11 +20,15 @@ public class TelevisionService {
 
     private final TelevisionRepository televisionRepository;
     private final RemoteRepository remoteRepository;
+    private final CI_ModuleRepository ci_moduleRepository;
 
     @Autowired
-    public TelevisionService(TelevisionRepository televisionRepository, RemoteRepository remoteRepository) {
+    public TelevisionService(TelevisionRepository televisionRepository,
+                             RemoteRepository remoteRepository,
+                             CI_ModuleRepository ci_moduleRepository) {
         this.televisionRepository = televisionRepository;
         this.remoteRepository = remoteRepository;
+        this.ci_moduleRepository = ci_moduleRepository;
     }
 
     public TelevisionDto assignRemoteToTelevision(TelevisionInputDto televisionInputDto, Long id) {
@@ -47,7 +53,7 @@ public class TelevisionService {
 
     public List<TelevisionDto> getAllTelevisionsByBrand(String brand) {
         List<TelevisionDto> televisionDtos = new ArrayList<>();
-        List<Television> televisions = televisionRepository.findAll();
+        List<Television> televisions = televisionRepository.findAllTelevisionsByBrandEqualsIgnoreCase(brand);
         for (Television television : televisions) {
             televisionDtos.add(fromTelevision(television));
         }
@@ -76,11 +82,22 @@ public class TelevisionService {
     public TelevisionDto updateTelevision(TelevisionInputDto televisionInputDto, Television id) {
         Television existingTelevision = televisionRepository.findById(televisionInputDto.getId()).orElse(null);
         assert existingTelevision != null;
+
         existingTelevision.setOriginalStock(televisionInputDto.getOriginalStock());
         existingTelevision.setPrice(televisionInputDto.getPrice());
         existingTelevision.setSold(televisionInputDto.getSold());
+
         televisionRepository.save(existingTelevision);
         return fromTelevision(existingTelevision);
+    }
+
+    public TelevisionDto televisionWhitCI(Long televisionId ,Long ci_moduleId){
+        Television television = televisionRepository.getById(televisionId);
+        CI_Module ci_module = ci_moduleRepository.getById(ci_moduleId);
+        ci_module.televisionSet(television);
+
+        televisionRepository.save(television);
+        return fromTelevision(television);
     }
 
     public static TelevisionDto fromTelevision(Television television) {
