@@ -4,7 +4,7 @@ import javax.validation.constraints.NotBlank;
 
 public class IdInputDto {
 
-    @NotBlank
+//    @NotBlank
 
     private Long id;
 

@@ -1,6 +1,11 @@
 package nl.novi.techiteasy.Dtos;
 
+import nl.novi.techiteasy.Models.Remote;
+
 public class TelevisionInputDto {
+
+    private Remote remote;
+
     private Long id;
 
     private String type;
@@ -19,6 +24,14 @@ public class TelevisionInputDto {
     private Boolean ambiLight;
     private Integer originalStock;
     private Integer sold;
+
+    public Remote getRemote() {
+        return remote;
+    }
+
+    public void setRemote(Remote remote) {
+        this.remote = remote;
+    }
 
     public Long getId() {
         return id;

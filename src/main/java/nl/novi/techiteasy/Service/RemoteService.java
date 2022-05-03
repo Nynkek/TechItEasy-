@@ -33,7 +33,7 @@ public class RemoteService {
 
     public List<RemoteDto> getAllRemotesByBrand(String brand){
         List<RemoteDto> remoteDtos = new ArrayList<>();
-        List<Remote> remotes = remoteRepository.findAll();
+        List<Remote> remotes = remoteRepository.findAllRemotesByBrandEqualsIgnoreCase(brand);
         for (Remote remote : remotes){
             remoteDtos.add(fromRemote(remote));
         }

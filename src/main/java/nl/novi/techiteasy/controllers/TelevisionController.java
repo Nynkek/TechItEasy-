@@ -1,7 +1,10 @@
 package nl.novi.techiteasy.controllers;
 
+import nl.novi.techiteasy.Dtos.IdInputDto;
+import nl.novi.techiteasy.Dtos.RemoteInputDto;
 import nl.novi.techiteasy.Dtos.TelevisionDto;
 import nl.novi.techiteasy.Dtos.TelevisionInputDto;
+import nl.novi.techiteasy.Models.Remote;
 import nl.novi.techiteasy.Models.Television;
 import nl.novi.techiteasy.Service.TelevisionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,8 +54,38 @@ public class TelevisionController {
             return televisionService.updateTelevision(televisionInputDto, id);
     }
 
+
+    /*
+*  [v] 10.  [v] Om deze functie uit te kunnen voeren moet je in de TelevisionController een PutRequest maken
+            [v] met endpoint"/televisions/{id}/remotecontroller" om aan te spreken.
+                Voeg deze toe
+                * geef de televisionId mee als @PathVariable
+                * de remoteControllerId als @RequestBody
+                * door middel van een IdInputDto input.
+* */
+//    @PutMapping("/televisions/{id}/remote")
+//    public TelevisionDto assignRemoteToTelevision(@RequestBody Television remoteId, @PathVariable TelevisionInputDto televisionId){
+//
+//        return televisionService.assignRemoteToTelevision(televisionId, remoteId);
+//    }
+
     @DeleteMapping("/delete/{id}")
     public String deleteTelevision(@PathVariable Television id) {
         return televisionService.deleteTelevision(id);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

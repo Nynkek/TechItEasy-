@@ -30,9 +30,9 @@ public class WallBracketService {
         return wallBracketDtos;
     }
 
-    public List<WallBracketDto> getAllWallBracketsByBrand(String brand) {
+    public List<WallBracketDto> getAllWallBracketsByBrand(String name) {
         List<WallBracketDto> wallBracketDtos = new ArrayList<>();
-        List<WallBracket> wallBracket = wallBracketRepository.findAll();
+        List<WallBracket> wallBracket = wallBracketRepository.findAllWallBracketsByNameEqualsIgnoreCase(name);
         for (WallBracket wallBrackets : wallBracket) {
             wallBracketDtos.add(fromWallBracket(wallBrackets));
         }

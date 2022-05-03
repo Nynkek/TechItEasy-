@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface CI_ModuleRepository extends JpaRepository<CI_Module, Long> {
 
-    List<CI_Module> findAllCI_ModulesByBrandEqualsIgnoreCase(String brand);
+    List<CI_Module> findAllCI_ModulesByNameEqualsIgnoreCase(String name);
 }
 

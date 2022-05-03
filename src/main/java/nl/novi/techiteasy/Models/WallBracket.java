@@ -1,8 +1,14 @@
 package nl.novi.techiteasy.Models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class WallBracket {
 
-
+    @Id
+    @GeneratedValue
     private Long id;
     private String size;
     private Boolean ajustable;

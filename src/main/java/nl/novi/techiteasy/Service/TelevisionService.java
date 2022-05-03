@@ -1,14 +1,18 @@
 package nl.novi.techiteasy.Service;
 
 
+import nl.novi.techiteasy.Dtos.RemoteDto;
+import nl.novi.techiteasy.Dtos.RemoteInputDto;
 import nl.novi.techiteasy.Dtos.TelevisionDto;
 import nl.novi.techiteasy.Dtos.TelevisionInputDto;
 import nl.novi.techiteasy.Models.Television;
+import nl.novi.techiteasy.Repositories.RemoteRepository;
 import nl.novi.techiteasy.Repositories.TelevisionRepository;
 import nl.novi.techiteasy.exceptions.RecordNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,11 +20,37 @@ import java.util.List;
 public class TelevisionService {
 
     private final TelevisionRepository televisionRepository;
+    private final RemoteRepository remoteRepository;
 
     @Autowired
-    public TelevisionService(TelevisionRepository televisionRepository) {
+    public TelevisionService(TelevisionRepository televisionRepository, RemoteRepository remoteRepository) {
         this.televisionRepository = televisionRepository;
+        this.remoteRepository = remoteRepository;
     }
+
+
+
+
+
+
+
+//    public TelevisionDto assignRemoteToTelevision(TelevisionInputDto televisionInputDto, Television id){
+//        Television existingTelevision = televisionRepository.findById(televisionInputDto.getId()).orElse(null);
+//        assert existingTelevision != null;
+//        existingTelevision.setRemote(televisionInputDto.getRemote());
+//
+//        televisionRepository.save(existingTelevision);
+//        return fromTelevision(existingTelevision);
+//    }
+
+
+
+
+
+
+
+
+
 
     public List<TelevisionDto> getAllTelevisions() {
         List<TelevisionDto> televisionDtos = new ArrayList<>();
@@ -71,6 +101,7 @@ public class TelevisionService {
 
     public static TelevisionDto fromTelevision(Television television) {
         var dto = new TelevisionDto();
+
         dto.setId(television.getId());
         dto.setType(television.getType());
         dto.setBrand(television.getBrand());

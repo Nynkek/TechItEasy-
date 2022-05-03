@@ -8,8 +8,6 @@ import javax.persistence.OneToOne;
 @Entity
 public class Remote {
 
-    @OneToOne
-    private Television television;
 
 
     @Id
@@ -40,6 +38,12 @@ public class Remote {
         this.price = price;
         this.originalStock = originalStock;
     }
+
+
+//    @OneToOne
+//    private Television television;
+
+
 
     public Long getId() {
         return id;

@@ -30,9 +30,9 @@ public class CI_ModuleService {
         return ci_moduleDtos;
     }
 
-    public List<CI_ModuleDto> getAllCI_ModulesByBrand(String brand) {
+    public List<CI_ModuleDto> getAllCI_ModulesByBrand(String name) {
         List<CI_ModuleDto> ci_moduleDtos = new ArrayList<>();
-        List<CI_Module> ci_modules = ci_moduleRepository.findAll();
+        List<CI_Module> ci_modules = ci_moduleRepository.findAllCI_ModulesByNameEqualsIgnoreCase(name);
         for (CI_Module ci_module : ci_modules) {
             ci_moduleDtos.add(fromCI_Module(ci_module));
         }

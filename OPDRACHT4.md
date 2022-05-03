@@ -49,7 +49,7 @@ Het project bevat de volgende Models:
         [v] Service.
 
 Daarnaast bevat het project:
-    [] Een OneToOne relatie tussen Television en RemoteController
+    [v] Een OneToOne relatie tussen Television en RemoteController
     [] Een OneToMany relatie tussen Television en CI-Module
     [] Een ManyToMany relatie tussen Televisionen WallBracket
 
@@ -76,31 +76,41 @@ Stappenplan
     [] 7. Een OneToOne relatie heeft een eigenaar nodig. 
             [v] Maak de Television eigenaar door in RemoteController 
             [v] achter de @OneToOne mappedBy toe te voegen op deze manier _@OneToOne(mappedBy = "remotecontroller").
-            [] Dit zorgt ervoor dat in de Television tabel een kolom wordt toegevoegd met de naam remotecontroller_id. 
+            [v] Dit zorgt ervoor dat in de Television tabel een kolom wordt toegevoegd met de naam remotecontroller_id. 
             [v] Vergeet niet de getter en setter toe te voegen na het leggen van de relatie in de modellen.
-    [] 8. Om deze kolom te vullen zal je in servicelaag ook een functie moeten maken die een koppeling maakt tussen de 
-        Television en de RemoteController. Dit doe je in de TelevisionService.
-    [] 9. Voeg de functie "assignRemoteControllerToTelevision" toe in de TelevisionService. Zoals je ziet, herkent de 
-        TelevisionService de RemoteControllerRepository niet, dit komt omdat we deze nog niet gekoppeld hebben met een
-        @Autowired, gelukkig hoef je niet alles opnieuw te doen. Je kan bovenaan in de TelevisionService onder de 
-        private TelevisionRepository een private RemoteControllerRepository declareren. En dan in de bestaande 
-        @Autowired deze toevoegen op dezelfde manier als de TelevisionRepository. Dit resulteert in: @Autowired public
-        TelevisionService (TelevisionRepository televisionRepository, RemoteControllerRepository remoteControllerRepository) 
-        { this.televisionRepository = televisionRepository; this.remoteControllerRepository = remoteControllerRepository;}
-    [] 10.Om deze functie uit te kunnen voeren moet je in de TelevisionController een PutRequest maken met endpoint 
-        "/televisions/{id}/remotecontroller" om aan te spreken. Voeg deze toe en geef de televisionId mee als 
-        @PathVariable en de remoteControllerId als @RequestBody door middel van een IdInputDto input.
-    [] 11.Hiervoor missen we nog de IdInputDto. Maak in het mapje Dtos een nieuwe klasse aan voor de IdInputDto.
-        Declareer in deze dto een public Long id toe, meer hoeft er niet in.
+    [v] 8. Om deze kolom te vullen zal je in servicelaag ook een functie moeten maken die een koppeling maakt tussen de 
+                Television en de RemoteController. Dit doe je in de TelevisionService.
+    [v] 9.   [v] Voeg de functie "assignRemoteControllerToTelevision" toe in de TelevisionService. 
+            [v] Zoals je ziet, herkent de TelevisionService de RemoteControllerRepository niet, dit komt omdat we deze 
+                nog niet gekoppeld hebben met een @Autowired, gelukkig hoef je niet alles opnieuw te doen. 
+            [v] Je kan bovenaan in de TelevisionService onder de private TelevisionRepository een private 
+                RemoteControllerRepository declareren. 
+            [v] En dan in de bestaande @Autowired deze toevoegen op dezelfde manier als de TelevisionRepository. 
+            [v] Dit resulteert in: @Autowired public TelevisionService (TelevisionRepository televisionRepository, 
+                RemoteControllerRepository remoteControllerRepository){ this.televisionRepository = televisionRepository;
+                this.remoteControllerRepository = remoteControllerRepository;}
+
+
+    [v] 10.  [v] Om deze functie uit te kunnen voeren moet je in de TelevisionController een PutRequest maken 
+            [v] met endpoint"/televisions/{id}/remotecontroller" om aan te spreken. 
+                Voeg deze toe en geef de televisionId mee als 
+                    [v] @PathVariable en de remoteControllerId als 
+                    [v] @RequestBody door middel van een IdInputDto input.
+    [v] 11.Hiervoor missen we nog de IdInputDto. 
+        [v] Maak in het mapje Dtos een nieuwe klasse aan voor de IdInputDto.
+        [v] Declareer in deze dto een public Long id toe, meer hoeft er niet in.
     [] 12.Gefeliciteerd, je hebt zo juist de eerste relatie gelegd in je applicatie!
     [] 13.Alleen als je nu met een get alle Televisions ophaalt, zie je geen RemoteController. Dit komt omdat we in de
         TelevisionDto nog niks hebben verteld over de RemoteController. De makkelijkste manier om hier de connectie te 
-        leggen is de public RemoteControllerDto remoteController; toe te voegen aan de variabele van de TelevisionDto
+        leggen is de 
+        [v]public RemoteControllerDto remoteController; toe te voegen aan de variabele van de TelevisionDto
     [] 14.Test alle functies die je tot nu toe hebt gemaakt met Postman.
 
 Bonusopdrachten
     In deze opdracht heb ik een relatie uitgelegd aan de hand van het stappenplan. 
-    Als je hier makkelijk doorheen gaat, mag je ook de one to many relatie maken tussen Television en CIModule. 
-    Hierbij is het nodig dat meerdere tv's één ci-module kunnen hebben. 
-    Als zelfs de one to many redelijk eenvoudig voor je is, mag je een many to many relatie leggen tussen Television 
-    en WallBracket. Dus meerdere tv's kunnen meerdere wallbrackets hebben en andersom.
+    Als je hier makkelijk doorheen gaat, mag je ook de 
+        [] one to many relatie maken tussen Television en CIModule. 
+        [] Hierbij is het nodig dat meerdere tv's één ci-module kunnen hebben. 
+        [] Als zelfs de one to many redelijk eenvoudig voor je is, mag je een
+            [] many to many relatie leggen tussen Television en WallBracket. 
+            [] Dus meerdere tv's kunnen meerdere wallbrackets hebben en andersom.

@@ -7,7 +7,8 @@ import java.util.List;
 
 public interface WallBracketRepository extends JpaRepository<WallBracket, Long> {
 
-    List<WallBracket> findAllWallBracketsByBrandEqualsIgnoreCase(String brand);
+    List<WallBracket> findAllWallBracketsByNameEqualsIgnoreCase(String name);
 
 }
+
 
