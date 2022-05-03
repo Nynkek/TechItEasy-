@@ -20,15 +20,15 @@ public class TelevisionDto {
     private Integer originalStock;
     private Integer sold;
 
-//    public RemoteControllerDto remoteController;
-//
-//    public RemoteControllerDto getRemoteController() {
-//        return remoteController;
-//    }
-//
-//    public void setRemoteController(RemoteControllerDto remoteController) {
-//        this.remoteController = remoteController;
-//    }
+    public RemoteDto remoteController;
+
+    public RemoteDto getRemoteController() {
+        return remoteController;
+    }
+
+    public void setRemoteController(RemoteDto remoteController) {
+        this.remoteController = remoteController;
+    }
 
     public Long getId() {
         return id;

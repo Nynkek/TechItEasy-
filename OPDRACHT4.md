@@ -111,7 +111,7 @@ Stappenplan
         [v] Declareer in deze dto een public Long id toe, meer hoeft er niet in.
     [v] 12.Gefeliciteerd, je hebt zo juist de eerste relatie gelegd in je applicatie!
 
-    [] 13.Alleen als je nu met een get alle Televisions ophaalt, zie je geen RemoteController. Dit komt omdat we in de
+    [v] 13.Alleen als je nu met een get alle Televisions ophaalt, zie je geen RemoteController. Dit komt omdat we in de
         TelevisionDto nog niks hebben verteld over de RemoteController. De makkelijkste manier om hier de connectie te 
         leggen is de 
         [v]public RemoteControllerDto remoteController; toe te voegen aan de variabele van de TelevisionDto
