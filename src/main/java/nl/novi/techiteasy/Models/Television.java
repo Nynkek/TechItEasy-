@@ -72,18 +72,18 @@ public class Television {
     }
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "televisionSet")
-    private Set<CI_Module> ci_moduleSet = new HashSet<>();
+    @ManyToMany(mappedBy = "televisionsWallSet")
+    private Set<WallBracket> wallBracketTelevisionSet = new HashSet<>();
 
     @OneToOne
     private Remote remote;
 
-    public Set<CI_Module> getCi_moduleSet() {
-        return ci_moduleSet;
+    public Set<WallBracket> getWallBracketTelevisionSet() {
+        return wallBracketTelevisionSet;
     }
 
-    public void setCi_moduleSet(Set<CI_Module> ci_moduleSet) {
-        this.ci_moduleSet = ci_moduleSet;
+    public void setWallBracketTelevisionSet(Set<WallBracket> wallBracketTelevisionSet) {
+        this.wallBracketTelevisionSet = wallBracketTelevisionSet;
     }
 
     public Remote getRemote() {

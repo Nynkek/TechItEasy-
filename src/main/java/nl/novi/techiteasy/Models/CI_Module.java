@@ -27,22 +27,23 @@ public class CI_Module {
         this.price = price;
     }
 
-    @ManyToMany
-    @JoinTable(
-            name = "television_whit_CI",
-            joinColumns = @JoinColumn(name = "television_id"),
-            inverseJoinColumns = @JoinColumn(name = "ci_module_id")
-    )
+//    @ManyToMany
+//    @JoinTable(
+//            name = "television_whit_CI",
+//            joinColumns = @JoinColumn(name = "television_id"),
+//            inverseJoinColumns = @JoinColumn(name = "ci_module_id")
+//    )
 
-    private Set<Television> televisionSet = new HashSet<>();
+//    private Set<Television> televisionCISet = new HashSet<>();
 
-    public Set<Television> getTelevision() {
-        return televisionSet;
-    }
+//    public Set<Television> getTelevision() {
+//        return televisionCISet;
+//    }
 
-    public void setTelevision(Set<Television> television) {
-        this.televisionSet = television;
-    }
+
+//    public void setTelevision(Set<Television> television) {
+//        this.televisionCISet = television;
+//    }
 
     public Long getId() {
         return id;
@@ -76,7 +77,7 @@ public class CI_Module {
         this.price = price;
     }
 
-    public void televisionSet(Television television) {
-        televisionSet.add(television);
-    }
+//    public void televisionSet(Television television) {
+//        televisionCISet.add(television);
+//    }
 }

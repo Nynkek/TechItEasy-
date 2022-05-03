@@ -55,12 +55,12 @@ public class TelevisionController {
         return televisionService.assignRemoteToTelevision(televisionId, id);
     }
 
-    @PutMapping("/{television_id}/ci_module/{ci_module_id}")
-    public TelevisionDto televisionWhitCI(
+    @PutMapping("/{television_id}/wall_bracket/{wall_bracket_id}")
+    public TelevisionDto televisionWhitWallBracket(
             @PathVariable Long televisionId,
-            @PathVariable Long ci_moduleId
+            @PathVariable Long wallBracketId
     ){
-        return televisionService.televisionWhitCI(televisionId, ci_moduleId);
+        return televisionService.televisionWhitWallBracket(televisionId, wallBracketId);
     }
 
     @DeleteMapping("/delete/{id}")

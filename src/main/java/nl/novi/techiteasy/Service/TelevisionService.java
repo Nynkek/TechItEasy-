@@ -5,9 +5,11 @@ import nl.novi.techiteasy.Dtos.*;
 import nl.novi.techiteasy.Models.CI_Module;
 import nl.novi.techiteasy.Models.Remote;
 import nl.novi.techiteasy.Models.Television;
+import nl.novi.techiteasy.Models.WallBracket;
 import nl.novi.techiteasy.Repositories.CI_ModuleRepository;
 import nl.novi.techiteasy.Repositories.RemoteRepository;
 import nl.novi.techiteasy.Repositories.TelevisionRepository;
+import nl.novi.techiteasy.Repositories.WallBracketRepository;
 import nl.novi.techiteasy.exceptions.RecordNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,14 +23,17 @@ public class TelevisionService {
     private final TelevisionRepository televisionRepository;
     private final RemoteRepository remoteRepository;
     private final CI_ModuleRepository ci_moduleRepository;
+    private final WallBracketRepository wallBracketRepository;
 
     @Autowired
     public TelevisionService(TelevisionRepository televisionRepository,
                              RemoteRepository remoteRepository,
-                             CI_ModuleRepository ci_moduleRepository) {
+                             CI_ModuleRepository ci_moduleRepository,
+                             WallBracketRepository wallBracketRepository) {
         this.televisionRepository = televisionRepository;
         this.remoteRepository = remoteRepository;
         this.ci_moduleRepository = ci_moduleRepository;
+        this.wallBracketRepository = wallBracketRepository;
     }
 
     public TelevisionDto assignRemoteToTelevision(TelevisionInputDto televisionInputDto, Long id) {
@@ -91,10 +96,10 @@ public class TelevisionService {
         return fromTelevision(existingTelevision);
     }
 
-    public TelevisionDto televisionWhitCI(Long televisionId ,Long ci_moduleId){
+    public TelevisionDto televisionWhitWallBracket(Long televisionId, Long wallBracketId ){
         Television television = televisionRepository.getById(televisionId);
-        CI_Module ci_module = ci_moduleRepository.getById(ci_moduleId);
-        ci_module.televisionSet(television);
+        WallBracket wallBracket = wallBracketRepository.getById(wallBracketId);
+        wallBracket.televisionsWallSe(television);
 
         televisionRepository.save(television);
         return fromTelevision(television);

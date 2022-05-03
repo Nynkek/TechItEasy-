@@ -1,8 +1,8 @@
 package nl.novi.techiteasy.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class WallBracket {
@@ -28,6 +28,23 @@ public class WallBracket {
         this.ajustable = ajustable;
         this.name = name;
         this.price = price;
+    }
+
+    @ManyToMany
+    @JoinTable(
+            name = "television_whit_wall_bracket",
+            joinColumns = @JoinColumn(name = "television_id"),
+            inverseJoinColumns = @JoinColumn(name = "wall_bracket_id")
+    )
+
+    private Set<Television> televisionsWallSet = new HashSet<>();
+
+    public Set<Television> getTelevisionsWallSet() {
+        return televisionsWallSet;
+    }
+
+    public void setTelevisionsWallSet(Set<Television> televisionsWallSet) {
+        this.televisionsWallSet = televisionsWallSet;
     }
 
     public Long getId() {
@@ -68,5 +85,9 @@ public class WallBracket {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public void televisionsWallSe(Television television) {
+        televisionsWallSet.add(television);
     }
 }
