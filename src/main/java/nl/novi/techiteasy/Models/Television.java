@@ -5,9 +5,6 @@ import javax.persistence.*;
 @Entity
 public class Television {
 
-//    @OneToOne(mappedBy = "remote")
-//    private Remote remote;
-
     @Id
     @GeneratedValue
     private Long id;
@@ -69,13 +66,16 @@ public class Television {
 
     }
 
-//    public Remote getRemote() {
-//        return remote;
-//    }
-//
-//    public void setRemote(Remote remote) {
-//        this.remote = remote;
-//    }
+    @OneToOne
+    private Remote remote;
+
+    public Remote getRemote() {
+        return remote;
+    }
+
+    public void setRemote(Remote remote) {
+        this.remote = remote;
+    }
 
     public Long getId() {
         return id;

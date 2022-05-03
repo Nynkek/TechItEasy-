@@ -9,7 +9,6 @@ import javax.persistence.OneToOne;
 public class Remote {
 
 
-
     @Id
     @GeneratedValue
     private Long id;
@@ -39,16 +38,20 @@ public class Remote {
         this.originalStock = originalStock;
     }
 
+    @OneToOne(mappedBy = "remote")
+    private Television television;
 
-//    @OneToOne
-//    private Television television;
+    public Television getTelevision() {
+        return television;
+    }
 
-
+    public void setTelevision(Television television) {
+        this.television = television;
+    }
 
     public Long getId() {
         return id;
     }
-
 
     public void setId(Long id) {
         this.id = id;
