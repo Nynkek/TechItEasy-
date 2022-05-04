@@ -27,29 +27,29 @@ De opdracht moet voldoen aan de volgende voorwaarden:
         [v] de connectie van de Service en de Repository door middel van een autowired
         [v] een functie voor het ophalen van alle Televisions
         [v] een functie voor het ophalen van 1 Television
-        [] een functie voor het verwijderen van 1 Television
-        [] een functie voor het updaten van 1 Television
-    [] De Controller is door middel van een autowired gelinkt aan de Service;
-    [] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Dtos;
-    [] De map Dtos bevat een TelevisionDto en een TelevisionInputDto;
-    [] De requestMappings in de Controller worden aangepast zodat deze de juiste response doorgeven via de Service;
-    [] De Service maakt gebruik van de gegevens die we via de Controller doorkrijgen van de Dtos;
-    [] Het project bevat de validator dependency uit paragraaf 8.1 van de cursus Spring Boot in Edhub.
+        [v] een functie voor het verwijderen van 1 Television
+        [v] een functie voor het updaten van 1 Television
+    [v] De Controller is door middel van een autowired gelinkt aan de Service;
+    [v] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Dtos;
+    [v] De map Dtos bevat een TelevisionDto en een TelevisionInputDto;
+    [v] De requestMappings in de Controller worden aangepast zodat deze de juiste response doorgeven via de Service;
+    [v] De Service maakt gebruik van de gegevens die we via de Controller doorkrijgen van de Dtos;
+    [v] Het project bevat de validator dependency uit paragraaf 8.1 van de cursus Spring Boot in Edhub.
 
 Belangrijk
 
-    [] Na deze les moeten de requestMappings in de controller de juiste responses geven.
-    [] Na deze les is de applicatie voor het eerst functioneel.
+    [v] Na deze les moeten de requestMappings in de controller de juiste responses geven.
+    [v] Na deze les is de applicatie voor het eerst functioneel.
 
 Het is belangrijk om goed te begrijpen hoe de lagen in onze multi-tier application samenwerken:
 
-    [] De Controller ontvangt een verzoek op een endpoint, als er variable worden meegeven aan dit verzoek komen die 
+    [v] De Controller ontvangt een verzoek op een endpoint, als er variable worden meegeven aan dit verzoek komen die 
         binnen via de TelevisionInputDto ->
-    [] De Controller geeft aan de hand van het verzoek en eventuele meegekregen variable dit door aan de Service ->
-    [] De Service spreekt aan de hand van de geschreven functie de Repository aan met de juiste find functie/query ->
-    [] De Repository gaat aan de hand van het bijbehorende Model zoeken naar de juiste gegevens en stuurt deze terug naar 
+    [v] De Controller geeft aan de hand van het verzoek en eventuele meegekregen variable dit door aan de Service ->
+    [v] De Service spreekt aan de hand van de geschreven functie de Repository aan met de juiste find functie/query ->
+    [v] De Repository gaat aan de hand van het bijbehorende Model zoeken naar de juiste gegevens en stuurt deze terug naar 
         de Service ->
-    [] De Service past de logica toe uit de functie en geeft de response aan de hand van de TelevisionDto terug aan de 
+    [v] De Service past de logica toe uit de functie en geeft de response aan de hand van de TelevisionDto terug aan de 
         Controller (De controller wordt vanuit de front-end of vanuit Postman aangesproken, en geeft ook het antwoord weer
         terug.)
 

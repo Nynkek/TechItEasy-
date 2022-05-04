@@ -23,13 +23,16 @@ De opdracht moet voldoen aan de volgende voorwaarden:
     [v] een DELETE-request voor 1 televisie
 
 De ExceptionController bevat:
+
     [v] een exceptionhandler
 
 De RecordNotFoundException bevat:
+
     [v] een default exception
     [v] een exception met message
     
-Belangrijk
+Belangrijk:
+
     [v] Bij het inleveren van deze opdracht is de applicatie nog niet functioneel, 
         omdat we hier meer kennis over andere technieken voor nodig hebben die later in de cursus aan bod komt.
 

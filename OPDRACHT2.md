@@ -13,13 +13,15 @@ van Postman. Omdat we niet weten of alles bestaat wat de gebruiker opvraagt heb 
 en een RecordNotFound exception. Na een nieuwe les Spring boot ben je klaar voor de volgende stap van het bouwen van 
 je applicatie.
 
-Randvoorwaarden
+Randvoorwaarden:
+
     [v] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Models;
     [v] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Repositories;
     [v] Het project bevat een Television in de map Models;
     [v] Het project bevat een TelevisionRepository;
 
 Het project bevat de volgende dependencies:
+
         [v] Spring Web
         [v] Spring Data Jpa
         [v] PostgreSQL Driver
@@ -27,6 +29,7 @@ Het project bevat de volgende dependencies:
         [v] De TelevisionRepository extends JpaRepository met de juiste parameters
 
 De Television bevat: -de attributen:
+
     [v] Long id (incl. annotaties id en generatedValue)
     [v] String type
     [v] String brand
@@ -54,6 +57,7 @@ Belangrijk
     Laat de application.properties overeenkomen met de gegevens van PgAdmin
 
 Je mag de volgende return fragmenten gebruiken:
+
     [] ResponseEntiteit.ok()
     [] ResponseEntiteit.created()
     [] ResponseEntiteit.noContent()

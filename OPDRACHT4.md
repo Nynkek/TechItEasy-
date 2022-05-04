@@ -49,11 +49,13 @@ Het project bevat de volgende Models:
         [v] Service.
 
 Daarnaast bevat het project:
+
     [v] Een OneToOne relatie tussen Television en RemoteController
     [v] Een OneToMany relatie tussen Television en CI-Module
     [v] Een ManyToMany relatie tussen Televisionen WallBracket
 
-Belangrijk
+Belangrijk:
+
     [] Je mag de constructors uit de modellen weglaten. Deze vult Spring Boot automatisch in als ze niet gedefinieerd 
         zijn. Ook uit de Television mogen de constructors verwijderd worden.
 
@@ -68,27 +70,18 @@ Stappenplan
         requestMappings).
     [v] 4. Maak in de map Dtos voor elk model een Dto en InputDto aan (met juiste variables en toewijzingen).
     [v] 5. Maak in de map Services voor elk model een Service aan (met juiste annotatie, @Autowired en functions).
-
-
-
-
     [v] 6. Leg een OneToOne relatie tussen 
             [v] Television en RemoteController 
             [v] door in beide models @OneToOne toe te voegen, 
             [v] gevolgd door het model waar de relatie mee ligt in de vorm van Model object (bijvoorbeeld Television television) 
                 op de volgende regel.
-
-
-    [] 7. Een OneToOne relatie heeft een eigenaar nodig. 
+    [v] 7. Een OneToOne relatie heeft een eigenaar nodig. 
             [v] Maak de Television eigenaar door in RemoteController 
             [v] achter de @OneToOne mappedBy toe te voegen op deze manier _@OneToOne(mappedBy = "remotecontroller").
             [v] Dit zorgt ervoor dat in de Television tabel een kolom wordt toegevoegd met de naam remotecontroller_id. 
             [v] Vergeet niet de getter en setter toe te voegen na het leggen van de relatie in de modellen.
-
-
     [v] 8. Om deze kolom te vullen zal je in servicelaag ook een functie moeten maken die een koppeling maakt tussen de 
                 Television en de RemoteController. Dit doe je in de TelevisionService.
-
     [v] 9.  [v] Voeg de functie "assignRemoteControllerToTelevision" toe in de TelevisionService. 
             [v] Zoals je ziet, herkent de TelevisionService de RemoteControllerRepository niet, dit komt omdat we deze 
                 nog niet gekoppeld hebben met een @Autowired, gelukkig hoef je niet alles opnieuw te doen. 
@@ -98,8 +91,6 @@ Stappenplan
             [v] Dit resulteert in: @Autowired public TelevisionService (TelevisionRepository televisionRepository, 
                 RemoteControllerRepository remoteControllerRepository){ this.televisionRepository = televisionRepository;
                 this.remoteControllerRepository = remoteControllerRepository;}
-
-
     [v] 10. [v] Om deze functie uit te kunnen voeren moet je in de TelevisionController een PutRequest maken 
             [v] met endpoint"/televisions/{id}/remotecontroller" om aan te spreken. 
                 Voeg deze toe en 
@@ -110,7 +101,6 @@ Stappenplan
         [v] Maak in het mapje Dtos een nieuwe klasse aan voor de IdInputDto.
         [v] Declareer in deze dto een public Long id toe, meer hoeft er niet in.
     [v] 12.Gefeliciteerd, je hebt zo juist de eerste relatie gelegd in je applicatie!
-
     [v] 13.Alleen als je nu met een get alle Televisions ophaalt, zie je geen RemoteController. Dit komt omdat we in de
         TelevisionDto nog niks hebben verteld over de RemoteController. De makkelijkste manier om hier de connectie te 
         leggen is de 
@@ -119,9 +109,10 @@ Stappenplan
 
 Bonusopdrachten
     In deze opdracht heb ik een relatie uitgelegd aan de hand van het stappenplan. 
-    Als je hier makkelijk doorheen gaat, mag je ook de 
-        [] one to many relatie maken tussen Television en CIModule. 
-        [] Hierbij is het nodig dat meerdere tv's één ci-module kunnen hebben. 
-        [] Als zelfs de one to many redelijk eenvoudig voor je is, mag je een
-            [] many to many relatie leggen tussen Television en WallBracket. 
-            [] Dus meerdere tv's kunnen meerdere wallbrackets hebben en andersom.
+    Als je hier makkelijk doorheen gaat, mag je ook de:
+
+        [v] one to many relatie maken tussen Television en CIModule. 
+        [v] Hierbij is het nodig dat meerdere tv's één ci-module kunnen hebben. 
+        [v] Als zelfs de one to many redelijk eenvoudig voor je is, mag je een
+            [v] many to many relatie leggen tussen Television en WallBracket. 
+            [v] Dus meerdere tv's kunnen meerdere wallbrackets hebben en andersom.
