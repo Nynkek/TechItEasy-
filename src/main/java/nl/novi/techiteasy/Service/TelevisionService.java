@@ -111,21 +111,12 @@ public class TelevisionService {
         CI_Module ci_module = ci_moduleRepository.getById(ci_moduleId);
         Television television = televisionRepository.getById(televisionId);
 
-
         ci_module.televisionCISet(television);
 //        television.televisionCISet(ci_module);
 
         televisionRepository.save(television);
         return fromTelevision(television);
     }
-
-
-
-
-
-
-
-
 
     public static TelevisionDto fromTelevision(Television television) {
         var dto = new TelevisionDto();

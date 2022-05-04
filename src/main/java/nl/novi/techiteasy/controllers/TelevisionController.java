@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController
 public class TelevisionController {
 
@@ -70,13 +69,6 @@ public class TelevisionController {
     ){
         return televisionService.televisionWhitCI_Modules(televisionId, ciModuleId);
     }
-
-
-
-
-
-
-
 
     @DeleteMapping("/delete/{id}")
     public String deleteTelevision(@PathVariable Television id) {

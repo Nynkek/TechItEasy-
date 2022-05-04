@@ -106,6 +106,15 @@ Stappenplan
         leggen is de 
         [v]public RemoteControllerDto remoteController; toe te voegen aan de variabele van de TelevisionDto
     [] 14.Test alle functies die je tot nu toe hebt gemaakt met Postman.
+        [v] Get all request Werkt!
+        [] Find by id request Werkt!
+        [] Find by name request Werkt!
+        [] Update request Werkt!
+        [] Delete request Werkt!
+
+        [] Assign OneToOne relatie tussen Television en RemoteController request Werkt!
+        [] Assign OneToMany relatie tussen Television en CI-Module request Werkt!
+        [] Assign ManyToMany relatie tussen Televisionen WallBracket request Werkt!
 
 Bonusopdrachten
     In deze opdracht heb ik een relatie uitgelegd aan de hand van het stappenplan. 
