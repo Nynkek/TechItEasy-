@@ -99,11 +99,33 @@ public class TelevisionService {
     public TelevisionDto televisionWhitWallBracket(Long televisionId, Long wallBracketId ){
         Television television = televisionRepository.getById(televisionId);
         WallBracket wallBracket = wallBracketRepository.getById(wallBracketId);
+
         wallBracket.televisionsWallSe(television);
 
         televisionRepository.save(television);
         return fromTelevision(television);
     }
+
+
+    public TelevisionDto televisionWhitCI_Modules(Long televisionId, Long ci_moduleId ){
+        CI_Module ci_module = ci_moduleRepository.getById(ci_moduleId);
+        Television television = televisionRepository.getById(televisionId);
+
+
+        ci_module.televisionCISet(television);
+//        television.televisionCISet(ci_module);
+
+        televisionRepository.save(television);
+        return fromTelevision(television);
+    }
+
+
+
+
+
+
+
+
 
     public static TelevisionDto fromTelevision(Television television) {
         var dto = new TelevisionDto();

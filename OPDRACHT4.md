@@ -51,7 +51,7 @@ Het project bevat de volgende Models:
 Daarnaast bevat het project:
     [v] Een OneToOne relatie tussen Television en RemoteController
     [v] Een OneToMany relatie tussen Television en CI-Module
-    [] Een ManyToMany relatie tussen Televisionen WallBracket
+    [v] Een ManyToMany relatie tussen Televisionen WallBracket
 
 Belangrijk
     [] Je mag de constructors uit de modellen weglaten. Deze vult Spring Boot automatisch in als ze niet gedefinieerd 

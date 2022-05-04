@@ -63,6 +63,21 @@ public class TelevisionController {
         return televisionService.televisionWhitWallBracket(televisionId, wallBracketId);
     }
 
+    @PutMapping("/{television_id}/ci_module/{ci_module_id}")
+    public TelevisionDto televisionWhitCI_Modules(
+            @PathVariable Long televisionId,
+            @PathVariable Long ciModuleId
+    ){
+        return televisionService.televisionWhitCI_Modules(televisionId, ciModuleId);
+    }
+
+
+
+
+
+
+
+
     @DeleteMapping("/delete/{id}")
     public String deleteTelevision(@PathVariable Television id) {
         return televisionService.deleteTelevision(id);

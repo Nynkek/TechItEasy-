@@ -72,6 +72,11 @@ public class Television {
     }
 
     @JsonIgnore
+    @OneToMany(mappedBy = "television")
+    private Set<CI_Module> ci_modules = new HashSet<>();
+
+
+    @JsonIgnore
     @ManyToMany(mappedBy = "televisionsWallSet")
     private Set<WallBracket> wallBracketTelevisionSet = new HashSet<>();
 
@@ -86,6 +91,7 @@ public class Television {
         this.wallBracketTelevisionSet = wallBracketTelevisionSet;
     }
 
+
     public Remote getRemote() {
         return remote;
     }
@@ -94,6 +100,13 @@ public class Television {
         this.remote = remote;
     }
 
+    public Set<CI_Module> getCi_modules() {
+        return ci_modules;
+    }
+
+    public void setCi_modules(Set<CI_Module> ci_modules) {
+        this.ci_modules = ci_modules;
+    }
     public Long getId() {
         return id;
     }
@@ -229,5 +242,9 @@ public class Television {
     public void setSold(Integer sold) {
         this.sold = sold;
 
+    }
+
+    public void televisionCISet(CI_Module ci_module) {
+        this.ci_modules = ci_modules;
     }
 }
