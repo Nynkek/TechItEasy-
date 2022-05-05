@@ -59,7 +59,7 @@ public class CI_ModuleService {
     }
 
     public CI_ModuleDto updateCI_Module(CI_ModuleInputDto CI_ModuleInputDto, CI_Module id) {
-        CI_Module existingCI_Module = ci_moduleRepository.findById(CI_ModuleInputDto.getId()).orElse(null);
+        CI_Module existingCI_Module = ci_moduleRepository.findById(id.getId()).orElse(null);
         assert existingCI_Module != null;
         existingCI_Module.setPrice(CI_ModuleInputDto.getPrice());
         ci_moduleRepository.save(existingCI_Module);

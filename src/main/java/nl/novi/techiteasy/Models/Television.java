@@ -91,7 +91,6 @@ public class Television {
         this.wallBracketTelevisionSet = wallBracketTelevisionSet;
     }
 
-
     public Remote getRemote() {
         return remote;
     }

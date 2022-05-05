@@ -59,7 +59,7 @@ public class TelevisionController {
             @PathVariable Long televisionId,
             @PathVariable Long wallBracketId
     ){
-        return televisionService.televisionWhitWallBracket(televisionId, wallBracketId);
+        return televisionService.televisionWithWallBracket(televisionId, wallBracketId);
     }
 
     @PutMapping("/{television_id}/ci_module/{ci_module_id}")

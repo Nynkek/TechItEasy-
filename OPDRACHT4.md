@@ -107,10 +107,10 @@ Stappenplan
         [v]public RemoteControllerDto remoteController; toe te voegen aan de variabele van de TelevisionDto
     [] 14.Test alle functies die je tot nu toe hebt gemaakt met Postman.
         [v] Get all request Werkt!
-        [] Find by id request Werkt!
-        [] Find by name request Werkt!
-        [] Update request Werkt!
-        [] Delete request Werkt!
+        [v] Find by id request Werkt!
+        [v] Find by name request Werkt!
+        [v] Update request Werkt!
+        [v] Delete request Werkt!
 
         [] Assign OneToOne relatie tussen Television en RemoteController request Werkt!
         [] Assign OneToMany relatie tussen Television en CI-Module request Werkt!

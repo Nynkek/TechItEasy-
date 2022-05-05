@@ -59,7 +59,7 @@ public class WallBracketService {
     }
 
     public WallBracketDto updateWallBracket(WallBracketInputDto wallBracketInputDto, WallBracket id) {
-        WallBracket existingWallBracket = wallBracketRepository.findById(wallBracketInputDto.getId()).orElse(null);
+        WallBracket existingWallBracket = wallBracketRepository.findById(id.getId()).orElse(null);
         assert existingWallBracket != null;
         existingWallBracket.setPrice(wallBracketInputDto.getPrice());
         wallBracketRepository.save(existingWallBracket);

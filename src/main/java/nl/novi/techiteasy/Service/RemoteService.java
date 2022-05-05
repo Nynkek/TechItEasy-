@@ -60,7 +60,7 @@ public class RemoteService {
     }
 
     public RemoteDto updateRemote (RemoteInputDto remoteInputDto, Remote id){
-        Remote existingRemote = remoteRepository.findById(remoteInputDto.getId()).orElse(null);
+        Remote existingRemote = remoteRepository.findById(id.getId()).orElse(null);
         assert existingRemote != null;
         existingRemote.setOriginalStock(remoteInputDto.getOriginalStock());
         existingRemote.setPrice(remoteInputDto.getPrice());

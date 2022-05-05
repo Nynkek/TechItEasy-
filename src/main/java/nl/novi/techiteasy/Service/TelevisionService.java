@@ -79,13 +79,15 @@ public class TelevisionService {
         return fromTelevision(television);
     }
 
+
+
     public String deleteTelevision(Television id) {
         televisionRepository.deleteById(id.getId());
         return "product removed !!" + id;
     }
 
     public TelevisionDto updateTelevision(TelevisionInputDto televisionInputDto, Television id) {
-        Television existingTelevision = televisionRepository.findById(televisionInputDto.getId()).orElse(null);
+        Television existingTelevision = televisionRepository.findById(id.getId()).orElse(null);
         assert existingTelevision != null;
 
         existingTelevision.setOriginalStock(televisionInputDto.getOriginalStock());
@@ -96,7 +98,7 @@ public class TelevisionService {
         return fromTelevision(existingTelevision);
     }
 
-    public TelevisionDto televisionWhitWallBracket(Long televisionId, Long wallBracketId ){
+    public TelevisionDto televisionWithWallBracket(Long televisionId, Long wallBracketId ){
         Television television = televisionRepository.getById(televisionId);
         WallBracket wallBracket = wallBracketRepository.getById(wallBracketId);
 
