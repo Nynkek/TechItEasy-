@@ -56,7 +56,7 @@ Daarnaast bevat het project:
 
 Belangrijk:
 
-    [] Je mag de constructors uit de modellen weglaten. Deze vult Spring Boot automatisch in als ze niet gedefinieerd 
+    [v] Je mag de constructors uit de modellen weglaten. Deze vult Spring Boot automatisch in als ze niet gedefinieerd 
         zijn. Ook uit de Television mogen de constructors verwijderd worden.
 
 Stappenplan
@@ -113,7 +113,7 @@ Stappenplan
         [v] Delete request Werkt!
 
         [] Assign OneToOne relatie tussen Television en RemoteController request Werkt!
-        [] Assign OneToMany relatie tussen Television en CI-Module request Werkt!
+        [v] Assign OneToMany relatie tussen Television en CI-Module request Werkt!
         [] Assign ManyToMany relatie tussen Televisionen WallBracket request Werkt!
 
 Bonusopdrachten

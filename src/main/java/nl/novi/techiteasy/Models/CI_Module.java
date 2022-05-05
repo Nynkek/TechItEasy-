@@ -1,8 +1,6 @@
 package nl.novi.techiteasy.Models;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 public class CI_Module {
@@ -14,26 +12,9 @@ public class CI_Module {
     private String type;
     private Double price;
 
-    public CI_Module() {
-    }
-
-    public CI_Module(Long id,
-                     String name,
-                     String type,
-                     Double price) {
-        this.id = id;
-        this.name = name;
-        this.type = type;
-        this.price = price;
-    }
-
-
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "television_id", referencedColumnName = "id")
     private Television television;
-
-
-
 
     public Television getTelevision() {
         return television;

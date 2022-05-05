@@ -18,25 +18,12 @@ public class WallBracket {
     public WallBracket() {
     }
 
-    public WallBracket(Long id,
-                       String size,
-                       Boolean ajustable,
-                       String name,
-                       Double price) {
-        this.id = id;
-        this.size = size;
-        this.ajustable = ajustable;
-        this.name = name;
-        this.price = price;
-    }
-
     @ManyToMany
     @JoinTable(
             name = "television_whit_wall_bracket",
-            joinColumns = @JoinColumn(name = "television_id"),
-            inverseJoinColumns = @JoinColumn(name = "wall_bracket_id")
+            joinColumns = @JoinColumn(name = "wall_bracket_id"),
+            inverseJoinColumns = @JoinColumn(name = "television_id")
     )
-
     private Set<Television> televisionsWallSet = new HashSet<>();
 
     public Set<Television> getTelevisionsWallSet() {

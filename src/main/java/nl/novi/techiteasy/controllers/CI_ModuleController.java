@@ -33,7 +33,7 @@ public class CI_ModuleController {
         return ResponseEntity.ok().body(ci_modules);
     }
 
-    @GetMapping("/ci_module/{id}")
+    @GetMapping("/ci_module/{name}")
     public CI_ModuleDto findCI_ModuleByName(@PathVariable CI_Module id) {
         return ci_moduleService.getCI_ModuleById(id);
     }

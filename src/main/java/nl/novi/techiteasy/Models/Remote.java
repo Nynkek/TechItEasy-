@@ -1,19 +1,14 @@
 package nl.novi.techiteasy.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import java.util.HashSet;
-import java.util.Set;
-
+import javax.persistence.*;
 
 @Entity
+@Table(name = "remote")
 public class Remote {
 
-
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
 
     private String compatibleWith;
@@ -23,27 +18,15 @@ public class Remote {
     private Double price;
     private Integer originalStock;
 
+    @OneToOne(mappedBy = "remote")
+    private Television television;
+
     public Remote() {
     }
 
-    public Remote(Long id,
-                  String compatibleWith,
-                  String batteryType,
-                  String name,
-                  String brand,
-                  Double price,
-                  Integer originalStock) {
-        this.id = id;
-        this.compatibleWith = compatibleWith;
-        this.batteryType = batteryType;
-        this.name = name;
-        this.brand = brand;
-        this.price = price;
-        this.originalStock = originalStock;
+    public Remote(Television television) {
+        this.television = television;
     }
-
-    @OneToOne(mappedBy = "remote")
-    private Television television;
 
     public Television getTelevision() {
         return television;

@@ -7,11 +7,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "TELEVISION")
+@Table(name = "television")
 public class Television {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
 
     private String type;
@@ -31,57 +32,24 @@ public class Television {
     private Integer originalStock;
     private Integer sold;
 
-    public Television() {
-    }
-
-    public Television(Long id,
-                      String type,
-                      String brand,
-                      String name,
-                      Double price,
-                      Double availableSize,
-                      Double refreshRate,
-                      String screenType,
-                      String screenQuality,
-                      Boolean smartTv,
-                      Boolean wifi,
-                      Boolean voiceControl,
-                      Boolean hdr,
-                      Boolean bluetooth,
-                      Boolean ambiLight,
-                      Integer originalStock,
-                      Integer sold) {
-        this.id = id;
-        this.type = type;
-        this.brand = brand;
-        this.name = name;
-        this.price = price;
-        this.availableSize = availableSize;
-        this.refreshRate = refreshRate;
-        this.screenType = screenType;
-        this.screenQuality = screenQuality;
-        this.smartTv = smartTv;
-        this.wifi = wifi;
-        this.voiceControl = voiceControl;
-        this.hdr = hdr;
-        this.bluetooth = bluetooth;
-        this.ambiLight = ambiLight;
-        this.originalStock = originalStock;
-        this.sold = sold;
-
-    }
-
     @JsonIgnore
     @OneToMany(mappedBy = "television")
     private Set<CI_Module> ci_modules = new HashSet<>();
-
 
     @JsonIgnore
     @ManyToMany(mappedBy = "televisionsWallSet")
     private Set<WallBracket> wallBracketTelevisionSet = new HashSet<>();
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "remote_id", referencedColumnName = "id")
     private Remote remote;
+
+    public Television() {
+    }
+
+    public Television(Remote remote) {
+        this.remote = remote;
+    }
 
     public Set<WallBracket> getWallBracketTelevisionSet() {
         return wallBracketTelevisionSet;
@@ -106,6 +74,7 @@ public class Television {
     public void setCi_modules(Set<CI_Module> ci_modules) {
         this.ci_modules = ci_modules;
     }
+
     public Long getId() {
         return id;
     }
@@ -240,10 +209,5 @@ public class Television {
 
     public void setSold(Integer sold) {
         this.sold = sold;
-
-    }
-
-    public void televisionCISet(CI_Module ci_module) {
-        this.ci_modules = ci_modules;
     }
 }

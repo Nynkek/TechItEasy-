@@ -44,30 +44,30 @@ public class TelevisionController {
     }
 
     @PutMapping("/update/{id}")
-    public TelevisionDto updateTelevision(@RequestBody TelevisionInputDto televisionInputDto, @PathVariable Television id) {
+    public TelevisionDto updateTelevision(@RequestBody TelevisionInputDto televisionInputDto,
+                                          @PathVariable Television id) {
         return televisionService.updateTelevision(televisionInputDto, id);
     }
 
-    @PutMapping("/televisions/{id}/remote")
-    public TelevisionDto assignRemoteToTelevision(@PathVariable Long id, @RequestBody TelevisionInputDto televisionId) {
-
+    @PutMapping("/television/remote/{id}")
+    public TelevisionDto assignRemoteToTelevision(@PathVariable Long id,
+                                                  @RequestBody TelevisionInputDto televisionId){
         return televisionService.assignRemoteToTelevision(televisionId, id);
     }
 
     @PutMapping("/{television_id}/wall_bracket/{wall_bracket_id}")
     public TelevisionDto televisionWhitWallBracket(
-            @PathVariable Long televisionId,
-            @PathVariable Long wallBracketId
-    ){
-        return televisionService.televisionWithWallBracket(televisionId, wallBracketId);
+            @PathVariable Long television_id,
+            @PathVariable Long wall_bracket_id){
+        return televisionService.televisionWithWallBracket(television_id, wall_bracket_id);
     }
+
 
     @PutMapping("/{television_id}/ci_module/{ci_module_id}")
     public TelevisionDto televisionWhitCI_Modules(
-            @PathVariable Long televisionId,
-            @PathVariable Long ciModuleId
-    ){
-        return televisionService.televisionWhitCI_Modules(televisionId, ciModuleId);
+            @PathVariable Long television_id,
+            @PathVariable Long ci_module_id){
+        return televisionService.televisionWhitCI_Modules(television_id, ci_module_id);
     }
 
     @DeleteMapping("/delete/{id}")
