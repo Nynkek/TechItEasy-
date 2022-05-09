@@ -1,5 +1,7 @@
 package nl.novi.techiteasy.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,6 +14,7 @@ public class CI_Module {
     private String type;
     private Double price;
 
+    @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "television_id", referencedColumnName = "id")
     private Television television;

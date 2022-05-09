@@ -1,6 +1,5 @@
 package nl.novi.techiteasy.Service;
 
-
 import nl.novi.techiteasy.Dtos.*;
 import nl.novi.techiteasy.Models.CI_Module;
 import nl.novi.techiteasy.Models.Remote;
@@ -16,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TelevisionService {
@@ -34,17 +34,6 @@ public class TelevisionService {
         this.remoteRepository = remoteRepository;
         this.ci_moduleRepository = ci_moduleRepository;
         this.wallBracketRepository = wallBracketRepository;
-    }
-
-    public TelevisionDto assignRemoteToTelevision(TelevisionInputDto televisionInputDto, Long id) {
-        Remote remote = remoteRepository.findById(id).get();
-        Television existingTelevision = televisionRepository.findById(televisionInputDto.getId()).orElse(null);
-        assert existingTelevision != null;
-
-        existingTelevision.setRemote(remote);
-
-        televisionRepository.save(existingTelevision);
-        return fromTelevision(existingTelevision);
     }
 
     public List<TelevisionDto> getAllTelevisions() {
@@ -98,15 +87,6 @@ public class TelevisionService {
         return fromTelevision(existingTelevision);
     }
 
-    public TelevisionDto televisionWithWallBracket(Long televisionId, Long wallBracketId ){
-        Television television = televisionRepository.getById(televisionId);
-        WallBracket wallBracket = wallBracketRepository.getById(wallBracketId);
-
-        wallBracket.televisionsWallSe(television);
-
-        televisionRepository.save(television);
-        return fromTelevision(television);
-    }
 
 
     public TelevisionDto televisionWhitCI_Modules(Long televisionId, Long ci_moduleId ){
@@ -114,11 +94,54 @@ public class TelevisionService {
         Television television = televisionRepository.getById(televisionId);
 
         ci_module.televisionCISet(television);
-//        television.televisionCISet(ci_module);
 
         televisionRepository.save(television);
         return fromTelevision(television);
     }
+
+
+
+    public TelevisionDto televisionWithWallBracket(Long televisionId, Long wallBracketId ){
+        Television television = televisionRepository.getById(televisionId);
+        WallBracket wallBracket = wallBracketRepository.getById(wallBracketId);
+
+        television.tvWallSet(wallBracket);
+
+        televisionRepository.save(television);
+
+        return fromTelevision(television);
+
+    }
+
+
+
+
+// de id van de remoot is te zien in de data base allen poostman geeft nog steerd een opject met null terug
+    public TelevisionDto assignRemoteToTelevision(Long remoteId, Long televisionId) {
+        Optional<Remote> optionalRemote = remoteRepository.findById(remoteId);
+        Optional<Television> optionalTelevision = televisionRepository.findById(televisionId);
+
+        Television television;
+        if (optionalTelevision.isEmpty() || optionalRemote.isEmpty()) {
+            throw new RecordNotFoundException();
+        } else {
+
+            Remote remote = optionalRemote.get();
+            television = optionalTelevision.get();
+
+            television.setRemote(remote);
+            televisionRepository.save(television);
+        }
+
+        return fromTelevision(television);
+    }
+
+
+
+
+
+
+
 
     public static TelevisionDto fromTelevision(Television television) {
         var dto = new TelevisionDto();
@@ -140,6 +163,10 @@ public class TelevisionService {
         dto.setAmbiLight(television.getAmbiLight());
         dto.setOriginalStock(television.getOriginalStock());
         dto.setSold(television.getSold());
+
+
+        dto.setRemote(television.getRemote());
+
         return dto;
     }
 

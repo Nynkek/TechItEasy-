@@ -91,4 +91,5 @@ public class Remote {
     public void setOriginalStock(Integer originalStock) {
         this.originalStock = originalStock;
     }
+
 }

@@ -40,6 +40,11 @@ public class Television {
     @ManyToMany(mappedBy = "televisionsWallSet")
     private Set<WallBracket> wallBracketTelevisionSet = new HashSet<>();
 
+    public void tvWallSet(WallBracket wallBracket) {
+        wallBracketTelevisionSet.add(wallBracket);
+    }
+
+    @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "remote_id", referencedColumnName = "id")
     private Remote remote;
@@ -210,4 +215,6 @@ public class Television {
     public void setSold(Integer sold) {
         this.sold = sold;
     }
+
+
 }

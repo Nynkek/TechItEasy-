@@ -43,17 +43,42 @@ public class TelevisionController {
         return televisionService.addTelevision(televisionInputDto);
     }
 
+
+
+
+
+
+
+
+
+
     @PutMapping("/update/{id}")
     public TelevisionDto updateTelevision(@RequestBody TelevisionInputDto televisionInputDto,
                                           @PathVariable Television id) {
         return televisionService.updateTelevision(televisionInputDto, id);
     }
 
-    @PutMapping("/television/remote/{id}")
-    public TelevisionDto assignRemoteToTelevision(@PathVariable Long id,
-                                                  @RequestBody TelevisionInputDto televisionId){
-        return televisionService.assignRemoteToTelevision(televisionId, id);
+
+
+
+
+
+    @PutMapping("/television/{television_id}/remote/{remote_id}")
+    public TelevisionDto assignRemoteToTelevision(@PathVariable Long remote_id,
+                                                  @PathVariable Long television_id){
+        return televisionService.assignRemoteToTelevision(remote_id, television_id);
     }
+
+
+
+
+
+
+
+
+
+
+
 
     @PutMapping("/{television_id}/wall_bracket/{wall_bracket_id}")
     public TelevisionDto televisionWhitWallBracket(
@@ -61,6 +86,17 @@ public class TelevisionController {
             @PathVariable Long wall_bracket_id){
         return televisionService.televisionWithWallBracket(television_id, wall_bracket_id);
     }
+
+
+
+
+
+
+
+
+
+
+
 
 
     @PutMapping("/{television_id}/ci_module/{ci_module_id}")

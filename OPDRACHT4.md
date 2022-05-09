@@ -112,7 +112,7 @@ Stappenplan
         [v] Update request Werkt!
         [v] Delete request Werkt!
 
-        [] Assign OneToOne relatie tussen Television en RemoteController request Werkt!
+        [v] Assign OneToOne relatie tussen Television en RemoteController request Werkt!
         [v] Assign OneToMany relatie tussen Television en CI-Module request Werkt!
         [] Assign ManyToMany relatie tussen Televisionen WallBracket request Werkt!
 

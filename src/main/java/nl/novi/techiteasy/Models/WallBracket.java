@@ -20,7 +20,7 @@ public class WallBracket {
 
     @ManyToMany
     @JoinTable(
-            name = "television_whit_wall_bracket",
+            name = "tvWallSet",
             joinColumns = @JoinColumn(name = "wall_bracket_id"),
             inverseJoinColumns = @JoinColumn(name = "television_id")
     )
@@ -74,7 +74,4 @@ public class WallBracket {
         this.price = price;
     }
 
-    public void televisionsWallSe(Television television) {
-        televisionsWallSet.add(television);
-    }
 }
