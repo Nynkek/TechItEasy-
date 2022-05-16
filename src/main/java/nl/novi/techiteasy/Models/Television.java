@@ -40,9 +40,11 @@ public class Television {
     @ManyToMany(mappedBy = "televisionsWallSet")
     private Set<WallBracket> wallBracketTelevisionSet = new HashSet<>();
 
+    //de tvWallSet moet onderaan maar voor nu even hier gezet voor overzicht
     public void tvWallSet(WallBracket wallBracket) {
         wallBracketTelevisionSet.add(wallBracket);
     }
+
 
     @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)

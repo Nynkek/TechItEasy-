@@ -69,7 +69,6 @@ public class TelevisionService {
     }
 
 
-
     public String deleteTelevision(Television id) {
         televisionRepository.deleteById(id.getId());
         return "product removed !!" + id;
@@ -88,8 +87,7 @@ public class TelevisionService {
     }
 
 
-
-    public TelevisionDto televisionWhitCI_Modules(Long televisionId, Long ci_moduleId ){
+    public TelevisionDto televisionWhitCI_Modules(Long televisionId, Long ci_moduleId) {
         CI_Module ci_module = ci_moduleRepository.getById(ci_moduleId);
         Television television = televisionRepository.getById(televisionId);
 
@@ -100,23 +98,25 @@ public class TelevisionService {
     }
 
 
+    public TelevisionDto televisionWithWallBracket(Long televisionId, Long wallBracketId) {
+        Optional<Television> optionalTelevision = Optional.of(televisionRepository.getById(televisionId));
+        Optional<WallBracket> optionalWallBracket = Optional.of(wallBracketRepository.getById(wallBracketId));
 
-    public TelevisionDto televisionWithWallBracket(Long televisionId, Long wallBracketId ){
-        Television television = televisionRepository.getById(televisionId);
-        WallBracket wallBracket = wallBracketRepository.getById(wallBracketId);
+        Television television;
+        if (optionalTelevision.isEmpty() || optionalWallBracket.isEmpty()) {
+            throw new RecordNotFoundException();
+        } else {
 
-        television.tvWallSet(wallBracket);
+            television = optionalTelevision.get();
+            WallBracket wallBracket = optionalWallBracket.get();
 
-        televisionRepository.save(television);
-
+            television.tvWallSet(wallBracket);
+            televisionRepository.save(television);
+        }
         return fromTelevision(television);
-
     }
 
 
-
-
-// de id van de remoot is te zien in de data base allen poostman geeft nog steerd een opject met null terug
     public TelevisionDto assignRemoteToTelevision(Long remoteId, Long televisionId) {
         Optional<Remote> optionalRemote = remoteRepository.findById(remoteId);
         Optional<Television> optionalTelevision = televisionRepository.findById(televisionId);
@@ -132,16 +132,8 @@ public class TelevisionService {
             television.setRemote(remote);
             televisionRepository.save(television);
         }
-
         return fromTelevision(television);
     }
-
-
-
-
-
-
-
 
     public static TelevisionDto fromTelevision(Television television) {
         var dto = new TelevisionDto();
@@ -164,7 +156,8 @@ public class TelevisionService {
         dto.setOriginalStock(television.getOriginalStock());
         dto.setSold(television.getSold());
 
-
+        dto.setCi_modules(television.getCi_modules());
+        dto.setWallBracketTelevisionSet(television.getWallBracketTelevisionSet());
         dto.setRemote(television.getRemote());
 
         return dto;

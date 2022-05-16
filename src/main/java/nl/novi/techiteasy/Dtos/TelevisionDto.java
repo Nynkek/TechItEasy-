@@ -1,6 +1,13 @@
 package nl.novi.techiteasy.Dtos;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import nl.novi.techiteasy.Models.CI_Module;
 import nl.novi.techiteasy.Models.Remote;
+import nl.novi.techiteasy.Models.WallBracket;
+
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class TelevisionDto {
     private Long id;
@@ -21,7 +28,30 @@ public class TelevisionDto {
     private Boolean ambiLight;
     private Integer originalStock;
     private Integer sold;
+
+
+    private Set<CI_Module> ci_modules = new HashSet<>();
+
+    @JsonSerialize
+    private Set<WallBracket> wallBracketTelevisionSet = new HashSet<>();
     private Remote remote;
+
+
+    public Set<CI_Module> getCi_modules() {
+        return ci_modules;
+    }
+
+    public void setCi_modules(Set<CI_Module> ci_modules) {
+        this.ci_modules = ci_modules;
+    }
+
+    public Set<WallBracket> getWallBracketTelevisionSet() {
+        return wallBracketTelevisionSet;
+    }
+
+    public void setWallBracketTelevisionSet(Set<WallBracket> wallBracketTelevisionSet) {
+        this.wallBracketTelevisionSet = wallBracketTelevisionSet;
+    }
 
     public Remote getRemote() {
         return remote;

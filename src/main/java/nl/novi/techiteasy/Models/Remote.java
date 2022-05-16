@@ -1,5 +1,7 @@
 package nl.novi.techiteasy.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -18,6 +20,7 @@ public class Remote {
     private Double price;
     private Integer originalStock;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "remote")
     private Television television;
 
